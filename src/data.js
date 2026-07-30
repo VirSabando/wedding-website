@@ -1,6 +1,6 @@
 // src/data.js
 export const cvData = {
-  name: "Your Name",
+  name: "Lulo Puto",
   title: "Frontend Developer",
   contact: "hello@example.com | github.com/yourusername",
   about: "I am a detail-oriented JavaScript developer with a passion for building responsive, accessible, and fast web applications.",
