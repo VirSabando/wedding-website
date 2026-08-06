@@ -2,9 +2,10 @@ import { cvData } from './data';
 
 export default function Experience() {
   return (
-    <div className="px-4 sm:px-6">
-      <div className="max-w-4xl mx-auto bg-white shadow-xl rounded-sm p-8 sm:p-12 border-t-8 border-slate-900">
-        <h2 className="text-2xl font-bold mb-12 text-slate-800">Experience</h2>
+    <div className="max-w-6xl mx-auto px-4">
+      <div className="w-full bg-white shadow-xl rounded-sm p-8 sm:p-12 border-t-8 border-slate-900">
+        <h2 className="text-2xl font-bold mb-4 text-slate-800">Experience</h2>
+        <p className="text-slate-700 mb-8">Roles and accomplishments across companies I've worked with.</p>
         
         <div className="relative">
                   

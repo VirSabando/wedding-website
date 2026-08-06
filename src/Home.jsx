@@ -3,9 +3,9 @@ import { cvData, homeContent } from './data';
 export default function Home() {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6">
-      <div className="p-6 sm:p-10">
-        <div className="home-grid lg:flex lg:items-center lg:gap-12">
-          <div className="flex-shrink-0 mb-5 lg:mb-0">
+      <div className="p-4 sm:p-6">
+        <div className="home-grid lg:flex lg:items-center lg:gap-8">
+          <div className="flex-shrink-0 mb-4 lg:mb-0">
             <img src="/profile.svg" alt="Profile" className="profile-pic rounded-full shadow-md" />
           </div>
 

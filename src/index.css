@@ -12,11 +12,11 @@
 
 .dark {
 	--page-bg: #020617;
-	--page-text: #e2e8f0;
-	--surface: #0f172a;
-	--surface-soft: #111827;
-	--border-color: rgba(255,255,255,0.12);
-	--muted: #94a3b8;
+	--page-text: #e6eef8;
+	--surface: #0b1830; /* slightly lighter than page bg to separate cards */
+	--surface-soft: #071026;
+	--border-color: rgba(255,255,255,0.16);
+	--muted: #9fb4cf;
 }
 
 html {
@@ -61,6 +61,51 @@ body {
 	background: rgba(15,23,42,0.92);
 	color: #e2e8f0;
 	box-shadow: 0 1px 4px rgba(255,255,255,0.08);
+}
+
+/* Dark-mode card and control contrast tweaks */
+.dark .bg-white {
+	background-color: var(--surface) !important;
+}
+
+.dark .bg-white[role="button"],
+.dark .bg-white .prof-inner,
+.dark .contact-card,
+.dark .contact-panel {
+	border: 1px solid rgba(255,255,255,0.04);
+}
+
+.dark .contact-card {
+	background: linear-gradient(180deg, rgba(11,24,48,0.85), rgba(6,12,24,0.85));
+	border-color: rgba(255,255,255,0.06);
+}
+
+.dark .contact-panel {
+	background: rgba(255,255,255,0.03);
+}
+
+.dark .contact-input,
+.dark .contact-textarea {
+	background: rgba(255,255,255,0.03);
+	border: 1px solid rgba(255,255,255,0.12);
+}
+
+.dark .contact-submit {
+	border-color: rgba(255,255,255,0.5);
+}
+
+.dark .contact-icon {
+	background: rgba(255,255,255,0.04);
+}
+.dark .contact-icon:hover {
+	background: rgba(255,255,255,0.12);
+}
+
+.dark .nav-link {
+	background: rgba(255,255,255,0.06);
+}
+.dark .nav-link:hover {
+	background: rgba(255,255,255,0.18);
 }
 
 .nav-link {

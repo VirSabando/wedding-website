@@ -45,7 +45,7 @@ export default function App() {
             <a href="#about" className="nav-link">About</a>
             <a href="#experience" className="nav-link">Experience</a>
             <a href="#professional" className="nav-link">Professional Portfolio</a>
-            <a href="#scientific" className="nav-link">Scientific Portfolio</a>
+            <a href="#scientific" className="nav-link">Publications & Research</a>
             <a href="#blog" className="nav-link">Blog</a>
             <a href="#contact" className="nav-link">Contact</a>
           </div>
@@ -82,11 +82,11 @@ export default function App() {
 
       {/* One-page sections */}
       <main className="py-10">
-        <section id="home" className="section py-8">
+        <section id="home" className="section py-4">
           <Home />
         </section>
 
-        <section id="about" className="section py-8">
+        <section id="about" className="section py-4">
           <About />
         </section>
 
@@ -98,7 +98,7 @@ export default function App() {
           <Professional />
         </section>
 
-        <section id="scientific" className="section py-12">
+        <section id="scientific" className="section py-8">
           <Scientific />
         </section>
 

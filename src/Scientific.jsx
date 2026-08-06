@@ -3,10 +3,9 @@ import { scientificItems } from './data';
 export default function Scientific() {
   return (
     <div className="max-w-6xl mx-auto px-4">
-      <h1 className="text-3xl font-bold text-slate-900 mb-6">Scientific Portfolio</h1>
-
-      <div className="bg-white p-6 shadow-md rounded-sm">
-        <h2 className="text-xl font-bold text-slate-800 mb-6">Publications & Research</h2>
+      <div className="bg-white w-full p-6 shadow-md rounded-sm border-t-8 border-slate-900">
+        <h2 className="text-2xl font-bold text-slate-800 mb-4">Publications & Research</h2>
+        <p className="text-slate-700 mb-6">Clickable papers, posters, and research summaries.</p>
 
         <div className="sci-grid">
           {scientificItems.map((item) => (

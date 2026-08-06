@@ -59,9 +59,9 @@ export default function Professional() {
 
   return (
     <div className="max-w-6xl mx-auto px-4">
-      <div className="bg-white p-6 shadow-md rounded-sm">
-        <h1 className="text-3xl font-bold text-slate-900 mb-6">Professional Portfolio</h1>
-        <p className="text-slate-600 mb-8">Here are some cool projects I have worked on recently:</p>
+      <div className="bg-white w-full p-6 shadow-md rounded-sm border-t-8 border-slate-900">
+        <h2 className="text-2xl font-bold text-slate-800 mb-4">Professional Portfolio</h2>
+        <p className="text-slate-700 mb-6">Selected recent projects with brief descriptions.</p>
 
         <div className="prof-list">
           {(() => {
