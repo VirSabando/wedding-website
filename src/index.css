@@ -1,17 +1,146 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap');
 @import "tailwindcss";
 
+:root {
+	--page-bg: #f8fafc;
+	--page-text: #0f172a;
+	--surface: #ffffff;
+	--surface-soft: #f8fafc;
+	--border-color: rgba(148,163,184,0.35);
+	--muted: #64748b;
+}
+
+.dark {
+	--page-bg: #020617;
+	--page-text: #e2e8f0;
+	--surface: #0f172a;
+	--surface-soft: #111827;
+	--border-color: rgba(255,255,255,0.12);
+	--muted: #94a3b8;
+}
+
 html {
 	scroll-behavior: smooth;
 	font-family: 'DM Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	background: var(--page-bg);
+	color: var(--page-text);
 }
 body {
 	font-family: 'DM Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	background: var(--page-bg);
+	color: var(--page-text);
+}
+
+.bg-slate-100 {
+	background-color: var(--page-bg) !important;
+}
+.bg-white {
+	background-color: var(--surface) !important;
+}
+.text-slate-900 {
+	color: var(--page-text) !important;
+}
+.text-slate-600,
+.text-slate-700,
+.text-slate-500 {
+	color: var(--muted) !important;
+}
+.border-slate-200 {
+	border-color: var(--border-color) !important;
+}
+
+.theme-toggle {
+	border-color: rgba(148,163,184,0.25);
+	background: rgba(255,255,255,0.92);
+	color: #0f172a;
+	box-shadow: 0 1px 4px rgba(15,23,42,0.08);
+}
+
+.dark .theme-toggle {
+	border-color: rgba(255,255,255,0.18);
+	background: rgba(15,23,42,0.92);
+	color: #e2e8f0;
+	box-shadow: 0 1px 4px rgba(255,255,255,0.08);
+}
+
+.nav-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.5rem 0.9rem;
+	border-radius: 9999px;
+	border: 1px solid transparent;
+	background: rgba(148,163,184,0.12);
+	color: inherit;
+	font-weight: 600;
+	transition: background 200ms ease, border-color 200ms ease, transform 200ms ease, color 200ms ease;
+}
+
+.nav-link:hover {
+	background: rgba(148,163,184,0.22);
+	border-color: rgba(148,163,184,0.4);
+	color: #0f172a;
+	transform: translateY(-1px);
+}
+
+.dark .nav-link {
+	background: rgba(255,255,255,0.08);
+}
+
+.dark .nav-link:hover {
+	background: rgba(255,255,255,0.16);
+	color: #e2e8f0;
+}
+
+/* Ensure high-contrast for nav name in dark mode */
+.dark .text-slate-800 {
+  color: var(--page-text) !important;
 }
 
 /* Ensure anchored sections are offset below the sticky nav */
 .section {
 	scroll-margin-top: 80px;
+}
+
+/* Confetti / Pride easter egg */
+.celebrate-root {
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	overflow: hidden;
+	z-index: 60;
+}
+.confetti {
+	position: absolute;
+	width: 10px;
+	height: 16px;
+	opacity: 0.95;
+	border-radius: 2px;
+	transform-origin: center;
+	animation: confetti-fall linear forwards;
+}
+.pride-ribbon {
+	position: absolute;
+	left: 50%;
+	top: -6px;
+	transform: translateX(-50%);
+	width: 60%;
+	height: 6px;
+	border-radius: 999px;
+	background: linear-gradient(90deg, #e40303,#ff8c00,#ffed00,#008026,#004dff,#750787);
+	opacity: 0.95;
+	animation: ribbon-slide 1s ease-out;
+}
+
+@keyframes confetti-fall {
+	0% { transform: translateY(-10vh) rotate(0deg); opacity: 1 }
+	100% { transform: translateY(110vh) rotate(720deg); opacity: 0.9 }
+}
+
+@keyframes ribbon-slide {
+	0% { transform: translateX(-50%) translateY(-30px); opacity: 0 }
+	20% { opacity: 1 }
+	100% { transform: translateX(-50%) translateY(0); opacity: 1 }
 }
 
 /* Home layout */
@@ -24,14 +153,14 @@ body {
 /* Scientific grid */
 .sci-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(5cm, 1fr));
-	gap: 1rem;
+	grid-template-columns: repeat(auto-fit, minmax(7cm, 1fr));
+	gap: 1.2rem;
 	justify-items: center;
 }
 
 .sci-card {
-	width: 5cm;
-	height: 5cm;
+	width: 7cm;
+	height: 7cm;
 	background-size: cover;
 	background-position: center;
 	border-radius: 8px;
@@ -106,7 +235,8 @@ body {
 }
 
 .contact-shell {
-	max-width: 100%;
+	max-width: 72rem;
+	margin: 0 auto;
 }
 .contact-card {
 	background: #050816;
@@ -117,7 +247,7 @@ body {
 	background: rgba(255,255,255,0.05);
 	border: 1px solid rgba(255,255,255,0.12);
 	color: white;
-	padding: 1rem 1.1rem;
+	padding: 0.85rem 1rem;
 	border-radius: 1rem;
 	outline: none;
 	transition: border-color 200ms ease, background 200ms ease;
@@ -128,13 +258,13 @@ body {
 	background: rgba(255,255,255,0.08);
 }
 .contact-textarea {
-	min-height: 180px;
+	min-height: 140px;
 }
 .contact-submit {
 	background: transparent;
 	border: 1px solid rgba(255,255,255,0.4);
 	color: white;
-	padding: 1rem 1.5rem;
+	padding: 0.9rem 1.2rem;
 	border-radius: 9999px;
 	font-weight: 600;
 	transition: background 200ms ease, transform 200ms ease, border-color 200ms ease;
@@ -148,8 +278,8 @@ body {
 	background: rgba(255,255,255,0.06);
 }
 .contact-icon {
-	width: 44px;
-	height: 44px;
+	width: 42px;
+	height: 42px;
 	border-radius: 9999px;
 	background: rgba(255,255,255,0.08);
 	display: inline-flex;
@@ -157,5 +287,9 @@ body {
 	justify-content: center;
 	color: white;
 	font-weight: 700;
-	font-size: 0.95rem;
+	font-size: 0.85rem;
+	text-decoration: none;
+}
+.contact-icon:hover {
+	background: rgba(255,255,255,0.15);
 }
