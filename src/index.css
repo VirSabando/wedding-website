@@ -1,1 +1,157 @@
 @import "tailwindcss";
+
+/* Smooth scrolling for anchor navigation */
+html {
+	scroll-behavior: smooth;
+}
+
+/* Ensure anchored sections are offset below the sticky nav */
+.section {
+	scroll-margin-top: 80px;
+}
+
+/* Home layout */
+.profile-pic {
+	width: 140px;
+	height: 140px;
+	object-fit: cover;
+}
+
+/* Scientific grid */
+.sci-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(5cm, 1fr));
+	gap: 1rem;
+	justify-items: center;
+}
+
+.sci-card {
+	width: 5cm;
+	height: 5cm;
+	background-size: cover;
+	background-position: center;
+	border-radius: 8px;
+	overflow: hidden;
+	display: flex;
+	align-items: flex-end;
+	text-decoration: none;
+	transition: transform 200ms ease, box-shadow 200ms ease, filter 200ms ease;
+	box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+}
+
+.sci-card:hover {
+	transform: translateY(-6px) scale(1.02);
+	box-shadow: 0 12px 30px rgba(2,6,23,0.14);
+	filter: brightness(1.03);
+}
+
+.sci-overlay {
+	width: 100%;
+	padding: 10px 12px;
+	background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(2,6,23,0.6) 60%);
+}
+
+@media (max-width: 640px) {
+	.profile-pic {
+		width: 110px;
+		height: 110px;
+	}
+	.sci-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+/* Professional portfolio styles */
+.prof-item {
+	width: 100%;
+	background: transparent;
+}
+.prof-item .prof-inner {
+	align-items: center;
+}
+.prof-item.reverse .prof-inner {
+	flex-direction: row-reverse;
+}
+.prof-image img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+.prof-modal .modal-backdrop {
+	backdrop-filter: blur(4px);
+}
+
+@media (min-width: 1024px) {
+	.prof-item {
+		min-height: 60vh;
+	}
+	.prof-inner {
+		padding: 40px 24px;
+	}
+}
+
+/* Highlight effect for professional images (like scientific cards) */
+.prof-img {
+	transition: transform 200ms ease, box-shadow 200ms ease, filter 200ms ease;
+	will-change: transform;
+}
+.prof-item:hover .prof-img {
+	transform: translateY(-6px) scale(1.02);
+	box-shadow: 0 12px 30px rgba(2,6,23,0.14);
+	filter: brightness(1.03);
+}
+
+.contact-shell {
+	max-width: 100%;
+}
+.contact-card {
+	background: #050816;
+}
+.contact-input,
+.contact-textarea {
+	width: 100%;
+	background: rgba(255,255,255,0.05);
+	border: 1px solid rgba(255,255,255,0.12);
+	color: white;
+	padding: 1rem 1.1rem;
+	border-radius: 1rem;
+	outline: none;
+	transition: border-color 200ms ease, background 200ms ease;
+}
+.contact-input:focus,
+.contact-textarea:focus {
+	border-color: rgba(59,130,246,0.8);
+	background: rgba(255,255,255,0.08);
+}
+.contact-textarea {
+	min-height: 180px;
+}
+.contact-submit {
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.4);
+	color: white;
+	padding: 1rem 1.5rem;
+	border-radius: 9999px;
+	font-weight: 600;
+	transition: background 200ms ease, transform 200ms ease, border-color 200ms ease;
+}
+.contact-submit:hover {
+	background: rgba(255,255,255,0.08);
+	border-color: rgba(59,130,246,0.9);
+	transform: translateY(-1px);
+}
+.contact-panel {
+	background: rgba(255,255,255,0.06);
+}
+.contact-icon {
+	width: 44px;
+	height: 44px;
+	border-radius: 9999px;
+	background: rgba(255,255,255,0.08);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-weight: 700;
+	font-size: 0.95rem;
+}
