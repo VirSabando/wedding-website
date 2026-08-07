@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6">
       <div className="p-4 sm:p-6">
-        <div className="home-grid lg:flex lg:items-center lg:gap-8">
+        <div className="home-grid lg:grid lg:grid-cols-[auto_1fr] lg:items-center">
           <div className="flex-shrink-0 mb-4 lg:mb-0">
             <img src="/profile.svg" alt="Profile" className="profile-pic rounded-full shadow-md" />
           </div>

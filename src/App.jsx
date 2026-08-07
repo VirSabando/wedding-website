@@ -16,18 +16,29 @@ export default function App() {
     return window.matchMedia('(prefers-color-scheme: dark)').matches;
   });
 
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
     document.documentElement.classList.toggle('dark', darkMode);
     window.localStorage.setItem('theme', darkMode ? 'dark' : 'light');
   }, [darkMode]);
 
+  useEffect(() => {
+    function onResize() {
+      if (window.innerWidth >= 1024) {
+        setMenuOpen(false);
+      }
+    }
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
 
   return (
     <div className="min-h-screen bg-slate-100 text-slate-900">
 
       {/* Navigation Bar (sticky) */}
-      <nav className="bg-white shadow-md sticky top-0 z-10 border-b border-slate-200">
-        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+      <nav className="relative bg-white shadow-md sticky top-0 z-10 border-b border-slate-200">
+        <div className="relative max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <button
               onClick={() => {
@@ -41,7 +52,7 @@ export default function App() {
             </button>
           </div>
 
-          <div className="flex-1 flex flex-wrap justify-center gap-3 px-4">
+          <div className="hidden flex-1 min-w-0 lg:flex lg:flex-wrap lg:justify-center lg:gap-3 lg:px-4">
             <a href="#about" className="nav-link">About</a>
             <a href="#experience" className="nav-link">Experience</a>
             <a href="#professional" className="nav-link">Professional Portfolio</a>
@@ -51,6 +62,25 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => setMenuOpen((current) => !current)}
+              className="theme-toggle rounded-full border p-2 flex items-center justify-center transition lg:hidden"
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={menuOpen}
+              title={menuOpen ? 'Close menu' : 'Open menu'}
+            >
+              {menuOpen ? (
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                  <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              ) : (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                  <path d="M4 7H20M4 12H20M4 17H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              )}
+            </button>
+
             <button
               type="button"
               onClick={() => setDarkMode((value) => !value)}
@@ -77,6 +107,17 @@ export default function App() {
               )}
             </button>
           </div>
+        </div>
+
+        <div className={`lg:hidden ${menuOpen ? 'block' : 'hidden'} absolute inset-x-4 top-full mt-2 rounded-2xl bg-white/95 border border-slate-200 shadow-xl p-4 z-20`}> 
+          <nav className="flex flex-col gap-2">
+            <a onClick={() => setMenuOpen(false)} href="#about" className="nav-link w-full text-left">About</a>
+            <a onClick={() => setMenuOpen(false)} href="#experience" className="nav-link w-full text-left">Experience</a>
+            <a onClick={() => setMenuOpen(false)} href="#professional" className="nav-link w-full text-left">Professional Portfolio</a>
+            <a onClick={() => setMenuOpen(false)} href="#scientific" className="nav-link w-full text-left">Publications & Research</a>
+            <a onClick={() => setMenuOpen(false)} href="#blog" className="nav-link w-full text-left">Blog</a>
+            <a onClick={() => setMenuOpen(false)} href="#contact" className="nav-link w-full text-left">Contact</a>
+          </nav>
         </div>
       </nav>
 
