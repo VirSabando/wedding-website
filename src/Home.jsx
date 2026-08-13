@@ -6,7 +6,7 @@ export default function Home() {
       <div className="p-4 sm:p-6">
         <div className="home-grid lg:grid lg:grid-cols-[auto_1fr] lg:items-center">
           <div className="flex-shrink-0 mb-4 lg:mb-0">
-            <img src="/profile.svg" alt="Profile" className="profile-pic rounded-full shadow-md" />
+            <img src="/profile.png" alt="Profile" className="profile-pic rounded-full shadow-md" />
           </div>
 
           <div className="text-left">

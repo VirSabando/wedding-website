@@ -17,6 +17,7 @@ export default function App() {
   });
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', darkMode);
@@ -33,6 +34,31 @@ export default function App() {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const sectionIds = ['home', 'about', 'experience', 'professional', 'scientific', 'blog', 'contact'];
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSections = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visibleSections.length > 0) {
+          setActiveSection(visibleSections[0].target.id);
+        }
+      },
+      { root: null, rootMargin: '-50% 0px -50% 0px', threshold: 0 }
+    );
+
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen bg-slate-100 text-slate-900">
 
@@ -40,25 +66,23 @@ export default function App() {
       <nav className="relative bg-white shadow-md sticky top-0 z-10 border-b border-slate-200">
         <div className="relative max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <button
-              onClick={() => {
-                document.getElementById('home')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }}
-              className="text-lg font-semibold text-slate-800 hover:text-blue-600 transition-colors"
+            <a
+              href="#home"
+              className="text-lg font-medium text-slate-800 hover:text-blue-600 transition-colors"
               aria-label="Go to Home"
               title="Go to Home"
             >
               {cvData.name}
-            </button>
+            </a>
           </div>
 
           <div className="hidden flex-1 min-w-0 lg:flex lg:flex-wrap lg:justify-center lg:gap-3 lg:px-4">
-            <a href="#about" className="nav-link">About</a>
-            <a href="#experience" className="nav-link">Experience</a>
-            <a href="#professional" className="nav-link">Professional Portfolio</a>
-            <a href="#scientific" className="nav-link">Publications & Research</a>
-            <a href="#blog" className="nav-link">Blog</a>
-            <a href="#contact" className="nav-link">Contact</a>
+            <a href="#about" className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}>About</a>
+            <a href="#experience" className={`nav-link ${activeSection === 'experience' ? 'active' : ''}`}>Experience</a>
+            <a href="#professional" className={`nav-link ${activeSection === 'professional' ? 'active' : ''}`}>Professional Portfolio</a>
+            <a href="#scientific" className={`nav-link ${activeSection === 'scientific' ? 'active' : ''}`}>Publications & Research</a>
+            <a href="#blog" className={`nav-link ${activeSection === 'blog' ? 'active' : ''}`}>Blog</a>
+            <a href="#contact" className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}>Contact</a>
           </div>
 
           <div className="flex items-center gap-3">
@@ -111,12 +135,12 @@ export default function App() {
 
         <div className={`lg:hidden ${menuOpen ? 'block' : 'hidden'} absolute inset-x-4 top-full mt-2 rounded-2xl bg-white/95 border border-slate-200 shadow-xl p-4 z-20`}> 
           <nav className="flex flex-col gap-2">
-            <a onClick={() => setMenuOpen(false)} href="#about" className="nav-link w-full text-left">About</a>
-            <a onClick={() => setMenuOpen(false)} href="#experience" className="nav-link w-full text-left">Experience</a>
-            <a onClick={() => setMenuOpen(false)} href="#professional" className="nav-link w-full text-left">Professional Portfolio</a>
-            <a onClick={() => setMenuOpen(false)} href="#scientific" className="nav-link w-full text-left">Publications & Research</a>
-            <a onClick={() => setMenuOpen(false)} href="#blog" className="nav-link w-full text-left">Blog</a>
-            <a onClick={() => setMenuOpen(false)} href="#contact" className="nav-link w-full text-left">Contact</a>
+            <a onClick={() => setMenuOpen(false)} href="#about" className={`nav-link w-full text-left ${activeSection === 'about' ? 'active' : ''}`}>About</a>
+            <a onClick={() => setMenuOpen(false)} href="#experience" className={`nav-link w-full text-left ${activeSection === 'experience' ? 'active' : ''}`}>Experience</a>
+            <a onClick={() => setMenuOpen(false)} href="#professional" className={`nav-link w-full text-left ${activeSection === 'professional' ? 'active' : ''}`}>Professional Portfolio</a>
+            <a onClick={() => setMenuOpen(false)} href="#scientific" className={`nav-link w-full text-left ${activeSection === 'scientific' ? 'active' : ''}`}>Publications & Research</a>
+            <a onClick={() => setMenuOpen(false)} href="#blog" className={`nav-link w-full text-left ${activeSection === 'blog' ? 'active' : ''}`}>Blog</a>
+            <a onClick={() => setMenuOpen(false)} href="#contact" className={`nav-link w-full text-left ${activeSection === 'contact' ? 'active' : ''}`}>Contact</a>
           </nav>
         </div>
       </nav>

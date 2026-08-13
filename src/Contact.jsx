@@ -25,12 +25,12 @@ export default function Contact() {
   }
 
   return (
-    <div className="contact-shell px-4 sm:px-6">
-      <div className="contact-card bg-slate-950 text-white rounded-[2rem] p-6 shadow-[0_24px_60px_rgba(15,23,42,0.25)] border border-white/10 grid gap-6 lg:grid-cols-[1.8fr_1fr]">
+    <div className="contact-shell px-3 sm:px-4 md:px-6">
+      <div className="contact-card text-slate-900 dark:text-white rounded-[2rem] p-4 sm:p-6 grid gap-4 sm:gap-6 lg:grid-cols-[1.8fr_1fr]">
         <div>
-          <p className="text-xs uppercase tracking-[0.35em] text-slate-400">Get In Touch</p>
-          <h1 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-white max-w-2xl">Have a project in mind or just want to chat? Feel free to reach out.</h1>
-          <p className="mt-4 max-w-xl text-slate-400 leading-7">Please leave your name, email, and a brief message. I’ll reply promptly!</p>
+          <p className="text-xs uppercase tracking-[0.35em] text-slate-600 dark:text-slate-300">Get In Touch</p>
+          <h1 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white max-w-2xl">Have a project in mind or just want to chat? Feel free to reach out.</h1>
+          <p className="mt-4 max-w-xl text-slate-700 dark:text-slate-200 leading-7">Please leave your name, email, and a brief message. I’ll reply promptly!</p>
 
           <form ref={formRef} method="POST" onSubmit={handleSubmit} className="mt-10 space-y-4">
             <input type="hidden" name="_subject" value="New message from portfolio site" />
@@ -78,9 +78,9 @@ export default function Contact() {
           </form>
         </div>
 
-        <aside className="contact-panel bg-white/5 rounded-[2rem] p-6 border border-white/10 shadow-inner flex flex-col justify-between">
+        <aside className="contact-panel bg-transparent rounded-[2rem] p-4 sm:p-6 flex flex-col justify-between">
           <div>
-            <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Connect with me</p>
+            <p className="text-sm uppercase tracking-[0.35em] text-slate-700 dark:text-slate-200">Connect with me</p>
             <div className="mt-5 flex flex-wrap gap-3">
               <a href="https://github.com/VirSabando" target="_blank" rel="noreferrer" className="contact-icon" aria-label="GitHub">
                 <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor" aria-hidden="true">
@@ -98,12 +98,12 @@ export default function Contact() {
                 </svg>
               </a>
             </div>
-            <p className="mt-4 text-sm leading-6 text-slate-300 max-w-xs">My resume is available on demand or on LinkedIn.</p>
+            <p className="mt-4 text-sm leading-6 text-slate-700 dark:text-slate-200 max-w-xs">My resume is available on demand or on LinkedIn.</p>
           </div>
 
-          <div className="mt-8 rounded-[1.5rem] bg-white/5 p-5 border border-white/10">
-            <p className="text-slate-400 text-sm uppercase tracking-[0.25em]">Or email me at:</p>
-            <a href={`mailto:${EMAIL_ADDRESS}`} className="mt-4 block text-white text-base font-semibold hover:text-blue-300">{EMAIL_ADDRESS}</a>
+          <div className="mt-8 rounded-[1.5rem] bg-transparent p-0">
+            <p className="text-slate-700 dark:text-slate-200 text-sm uppercase tracking-[0.25em]">Or email me at:</p>
+            <a href={`mailto:${EMAIL_ADDRESS}`} className="mt-4 block text-slate-900 dark:text-white text-base font-semibold hover:text-blue-700 dark:hover:text-blue-300">{EMAIL_ADDRESS}</a>
           </div>
         </aside>
       </div>
