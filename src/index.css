@@ -75,19 +75,8 @@ body {
 }
 
 .dark .bg-white[role="button"],
-.dark .bg-white .prof-inner,
-.dark .contact-card,
-.dark .contact-panel {
+.dark .bg-white .prof-inner {
 	border: 1px solid rgba(255,255,255,0.04);
-}
-
-.dark .contact-card {
-	background: linear-gradient(180deg, rgba(11,24,48,0.85), rgba(6,12,24,0.85));
-	border-color: rgba(255,255,255,0.06);
-}
-
-.dark .contact-panel {
-	background: rgba(255,255,255,0.03);
 }
 
 .dark .contact-input,
@@ -109,6 +98,7 @@ body {
 
 .dark .nav-link {
 	background: transparent;
+	color: #e2e8f0;
 }
 
 /* Nav items displayed as plain text (DM Sans regular) */
@@ -131,6 +121,16 @@ body {
 .nav-link:hover {
 	color: #0f172a;
 	transform: none;
+}
+
+.dark .nav-link:hover,
+.dark .nav-link.active {
+	color: #ffffff;
+}
+
+.dark .mobile-nav-menu {
+	background: rgba(15, 23, 42, 0.96) !important;
+	border-color: rgba(148, 163, 184, 0.35) !important;
 }
 
 /* Active section underline */
@@ -406,6 +406,14 @@ body {
 .contact-panel {
 	background: transparent;
 }
+
+.dark .contact-card,
+.dark .contact-panel {
+	background: transparent;
+	border: 0;
+	box-shadow: none;
+}
+
 .contact-icon {
 	width: 42px;
 	height: 42px;

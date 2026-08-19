@@ -133,7 +133,7 @@ export default function App() {
           </div>
         </div>
 
-        <div className={`lg:hidden ${menuOpen ? 'block' : 'hidden'} absolute inset-x-4 top-full mt-2 rounded-2xl bg-white/95 border border-slate-200 shadow-xl p-4 z-20`}> 
+        <div className={`mobile-nav-menu lg:hidden ${menuOpen ? 'block' : 'hidden'} absolute inset-x-4 top-full mt-2 rounded-2xl bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-700 shadow-xl p-4 z-20`}> 
           <nav className="flex flex-col gap-2">
             <a onClick={() => setMenuOpen(false)} href="#about" className={`nav-link w-full text-left ${activeSection === 'about' ? 'active' : ''}`}>About</a>
             <a onClick={() => setMenuOpen(false)} href="#experience" className={`nav-link w-full text-left ${activeSection === 'experience' ? 'active' : ''}`}>Experience</a>
