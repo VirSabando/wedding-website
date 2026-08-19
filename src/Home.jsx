@@ -6,7 +6,7 @@ export default function Home() {
       <div className="p-4 sm:p-6">
         <div className="home-grid lg:grid lg:grid-cols-[auto_1fr] lg:items-center">
           <div className="flex-shrink-0 mb-4 lg:mb-0">
-            <img src="/profile.png" alt="Profile" className="profile-pic rounded-full shadow-md" />
+            <img src="/profile.png" alt="Profile" className="profile-pic rounded-full shadow-md transition-transform duration-300 hover:scale-105" />
           </div>
 
           <div className="text-left">
@@ -20,7 +20,7 @@ export default function Home() {
             <p className="text-slate-700 mt-6 leading-relaxed">{homeContent.welcomePara}</p>
             <p className="text-slate-700 mt-3 leading-relaxed">{homeContent.callToPara}</p>
             <div className="mt-6 flex gap-3">
-              <a href="#contact" className="bg-slate-900 text-white px-4 py-2 rounded-md hover:bg-slate-800">Get in touch</a>
+              <a href="#contact" className="bg-slate-900 text-white px-4 py-2 rounded-md hover:bg-slate-800 transition-colors duration-200">Get in touch</a>
             </div>
           </div>
         </div>

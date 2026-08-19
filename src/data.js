@@ -5,6 +5,13 @@ export const cvData = {
   pronouns: "they/them – he/him",
   contact: "virsabando@gmail.com | Linkedin | Google Scholar",
   about: "I’ve always been driven by a simple curiosity to figure out how things work and use tech to solve real-world problems. My background includes a PhD in Computer Science—using deep learning for pharma—and over a decade of teaching, which really shaped how I communicate and lead teams today. Now, as an AI Solutions Architect, my favorite place to be is at the messy beginning of a project: sitting with cross-functional teams, figuring out exactly what we need to build, and designing the MLOps pipelines that make Gen AI work in production. As a trans person and proud member of the LGBTQ+ community, creating inclusive, open, and welcoming environments is just as important to me as technical excellence. \nWhen I’m not behind a screen, you can usually find me studying a new language, shooting a game of pool with my friends, cheering on my favorite sports teams, getting behind the mic for a radio show (something I’ve loved doing for years!), or obsessing over cats in all shapes and forms.",
+  stats: [
+    { value: "13+", label: "Years in research & teaching" },
+    { value: "9+",  label: "AI certifications & skill badges" },
+    { value: "10+", label: "Large-scale projects in production" },
+    { value: "20+", label: "Engineers led" },
+    { value: "6",   label: "International awards & scholarships" },
+  ],
   experience: [
     {
       company: "ZYZYGY INC",
@@ -84,56 +91,56 @@ export const scientificItems = [
     id: 1, 
     title: "Using Molecular Embeddings in QSAR Modeling", 
     desc: "Evaluating the impact of molecular embeddings in Quantitative Structure-Activity Relationship (QSAR) modeling.", 
-    image: "/abstract1.svg", 
+    image: "/BiB.jpeg", 
     url: "https://academic.oup.com/bib/article/23/1/bbab365/6366344" 
   },
   { 
     id: 2, 
     title: "ChemVA: Interactive Visual Analysis", 
     desc: "Interactive visual analytics tool for exploring chemical compound similarity during virtual screening.", 
-    image: "/abstract2.svg", 
+    image: "/chemva.png", 
     url: "https://ieeexplore.ieee.org/abstract/document/9222282" 
   },
   { 
     id: 3, 
     title: "Multi-Task Deep Neural Networks", 
     desc: "Utilizing multi-task deep neural network architectures for Ames mutagenicity prediction.", 
-    image: "/abstract3.svg", 
+    image: "/ames.png",
     url: "https://pubs.acs.org/jcisd8/article-abstract/62/24/6342/884698/Multitask-Deep-Neural-Networks-for-Ames?redirectedFrom=fulltext" 
   },
   { 
     id: 4, 
     title: "Neural-based Drug Property Prediction", 
     desc: "Overcoming feature selection and applicability domain limitations in drug-related property prediction.", 
-    image: "/abstract4.svg", 
+    image: "/Neural.jpg", 
     url: "https://www.sciencedirect.com/science/article/pii/S1568494619305587" 
   },
   { 
     id: 5, 
     title: "Detection of Racial Stereotypes in Spanish Text", 
     desc: "A multi-task learning approach tailored for the low-resource detection of racial stereotypes in Spanish.", 
-    image: "/abstract5.svg", 
+    image: "/Malnis.png", 
     url: "https://ceur-ws.org/Vol-3202/detests-paper2.pdf" 
   },
   { 
     id: 6, 
     title: "Generative AI for Drug Discovery", 
     desc: "A multidimensional taxonomy reviewing generative artificial intelligence approaches for drug discovery.", 
-    image: "/abstract6.svg", 
+    image: "/Trini.jpg", 
     url: "https://wires.onlinelibrary.wiley.com/doi/abs/10.1002/widm.70104" 
   },
   { 
     id: 7, 
     title: "GenAI Explainability in Molecualr Design", 
     desc: "Interpretable generative models tailored for the de novo design of molecules.", 
-    image: "/abstract7.svg", 
+    image: "/XAI.jpg", 
     url: "https://sedici.unlp.edu.ar/handle/10915/195895" 
   },
   { 
     id: 8, 
     title: "My PhD Thesis", 
     desc: "Deep learning strategies applied to drug discovery.", 
-    image: "/abstract7.svg", 
+    image: "/Thesis.jpg", 
     url: "https://repositoriodigital.uns.edu.ar/handle/123456789/6737" 
   }
 ];

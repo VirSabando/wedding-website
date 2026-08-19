@@ -63,7 +63,7 @@ export default function App() {
     <div className="min-h-screen bg-slate-100 text-slate-900">
 
       {/* Navigation Bar (sticky) */}
-      <nav className="relative bg-white shadow-md sticky top-0 z-10 border-b border-slate-200">
+      <nav className="relative bg-white shadow-md sticky top-0 z-50 border-b border-slate-200">
         <div className="relative max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <a

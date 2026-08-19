@@ -33,7 +33,7 @@ export default function Professional() {
             target?.scrollIntoView({ behavior: 'smooth', block: 'center' });
           }}
           aria-label={pointUp ? 'Scroll to previous' : 'Scroll to next'}
-          className="relative z-50 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-slate-700 opacity-60 hover:opacity-100 pointer-events-auto"
+          className="relative z-50 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-slate-700 opacity-60 hover:opacity-100 transition-opacity duration-200 pointer-events-auto"
         >
           {pointUp ? (
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-5 h-5">
