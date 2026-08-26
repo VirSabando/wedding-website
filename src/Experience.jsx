@@ -5,7 +5,7 @@ export default function Experience() {
     <div className="max-w-6xl mx-auto px-4">
       <div className="w-full bg-white shadow-xl rounded-sm p-8 sm:p-12 border-t-8 border-slate-900">
         <h2 className="text-2xl font-bold mb-4 text-slate-800">Experience</h2>
-        <p className="text-slate-700 mb-8">Roles and accomplishments across companies I've worked with.</p>
+        <p className="text-slate-700 mb-8">A brief summary of my professional experience, main roles and accomplishments. More details are available on my resume!</p>
         
         <div className="relative">
                   

@@ -91,56 +91,56 @@ export const scientificItems = [
     id: 1, 
     title: "Using Molecular Embeddings in QSAR Modeling", 
     desc: "Evaluating the impact of molecular embeddings in Quantitative Structure-Activity Relationship (QSAR) modeling.", 
-    image: "/BiB.jpeg", 
+    image: "/research/BiB.jpeg", 
     url: "https://academic.oup.com/bib/article/23/1/bbab365/6366344" 
   },
   { 
     id: 2, 
     title: "ChemVA: Interactive Visual Analysis", 
     desc: "Interactive visual analytics tool for exploring chemical compound similarity during virtual screening.", 
-    image: "/chemva.png", 
+    image: "/research/chemva.png", 
     url: "https://ieeexplore.ieee.org/abstract/document/9222282" 
   },
   { 
     id: 3, 
     title: "Multi-Task Deep Neural Networks", 
     desc: "Utilizing multi-task deep neural network architectures for Ames mutagenicity prediction.", 
-    image: "/ames.png",
+    image: "/research/ames.png",
     url: "https://pubs.acs.org/jcisd8/article-abstract/62/24/6342/884698/Multitask-Deep-Neural-Networks-for-Ames?redirectedFrom=fulltext" 
   },
   { 
     id: 4, 
     title: "Neural-based Drug Property Prediction", 
     desc: "Overcoming feature selection and applicability domain limitations in drug-related property prediction.", 
-    image: "/Neural.jpg", 
+    image: "/research/Neural.jpg", 
     url: "https://www.sciencedirect.com/science/article/pii/S1568494619305587" 
   },
   { 
     id: 5, 
     title: "Detection of Racial Stereotypes in Spanish Text", 
     desc: "A multi-task learning approach tailored for the low-resource detection of racial stereotypes in Spanish.", 
-    image: "/Malnis.png", 
+    image: "/research/Malnis.png", 
     url: "https://ceur-ws.org/Vol-3202/detests-paper2.pdf" 
   },
   { 
     id: 6, 
     title: "Generative AI for Drug Discovery", 
     desc: "A multidimensional taxonomy reviewing generative artificial intelligence approaches for drug discovery.", 
-    image: "/Trini.jpg", 
+    image: "/research/Trini.jpg", 
     url: "https://wires.onlinelibrary.wiley.com/doi/abs/10.1002/widm.70104" 
   },
   { 
     id: 7, 
     title: "GenAI Explainability in Molecualr Design", 
     desc: "Interpretable generative models tailored for the de novo design of molecules.", 
-    image: "/XAI.jpg", 
+    image: "/research/XAI.jpg", 
     url: "https://sedici.unlp.edu.ar/handle/10915/195895" 
   },
   { 
     id: 8, 
     title: "My PhD Thesis", 
     desc: "Deep learning strategies applied to drug discovery.", 
-    image: "/Thesis.jpg", 
+    image: "/research/Thesis.jpg", 
     url: "https://repositoriodigital.uns.edu.ar/handle/123456789/6737" 
   }
 ];
@@ -153,58 +153,44 @@ export const homeContent = {
 export const professionalItems = [
   {
     id: 1,
-    title: "Real-Time Construction Platform",
-    desc: "I designed an end-to-end, high-scale collaborative platform to handle real-time floorplan takeoffs. It seamlessly manages massive traffic and data payloads for heavy enterprise estimation ops.",
-    image: "/prof1.svg",
-    url: "https://example.com/project1"
+    title: "Real-Time Collaborative CRDT Platform",
+    role: "Architect of Record",
+    desc: "Designed this GCP platform to serve continuous production traffic. It uses CRDTs and an event sourcing pattern to power live collaboration. Web clients send raw edits over WebSockets through an API gateway. The system validates these edits, saves them to a ledger, and broadcasts them to other session peers so users see updates instantly.\nDedicated microservices manage the rest of the work to keep syncing fast. Relational databases store project details, and a fast cache holds active snapshot states. Internal event topics also trigger AI engines for background tasks, ensuring heavy data processing never slows down the live app.",
+    image: "/professional/CRDT_platform.svg"
   },
   {
     id: 2,
-    title: "Healthcare NLP Pipeline",
-    desc: "I built a secure MLOps infrastructure using the Gemini Enterprise Agent Platform to automatically parse complex medical records and streamline tedious insurance workflows.",
-    image: "/prof2.svg",
-    url: "https://example.com/project2"
+    title: "HPI Graph-Driven Multiagent System",
+    role: "Principal Architect",
+    desc: "Designed the HPI Multiagent System, a live conversational platform that adapts user questionnaires. Built with LangChain and LangGraph, its state-machine coordinates specialized AI agents. It uses initial context to skip irrelevant questions and adjust the flow instantly. It outputs strict JSON to tell the frontend exactly what UI to render.\nOur team deployed this on Azure for continuous real-time messaging. Azure Web PubSub handles WebSocket communication, while the agents connect to a private Azure OpenAI instance. For fault tolerance, we built a custom, encrypted persistence layer in Azure Blob Storage. It saves agent memory so users can disconnect and resume seamlessly without data loss.",
+    image: "/professional/HPI_multiagent_system.svg"
   },
   {
     id: 3,
-    title: "Custom RAG Agents",
-    desc: "I developed tailored agentic AI workflows using LangChain and advanced embeddings to solve specific, real-world business bottlenecks across the travel, e-commerce, and consulting sectors.",
-    image: "/prof3.svg",
-    url: "https://example.com/project3"
+    title: "Manufacturing Multiagent System using Google Cloud ADK",
+    role: "Architect of Record",
+    desc: "Designed and built this multi-agent PoV to help manufacturing operators solve problems and run routine checks. Using Google Cloud's Agent Development Kit (ADK), a central Orchestrator Agent routes user requests to specialized worker sub-agents. To ensure safety and accuracy, an Internal Auditor Agent checks every answer against company standards before the operator ever sees it.\nThe backend relies on secure microservices placed behind an API Gateway. Sub-agents pull knowledge directly from a Vertex AI Vector Store filled with company manuals and processes. While this is a Proof of Value and not a production-ready system, its simple, modular design makes it easy to adapt for other business needs in the future.",
+    image: "/professional/manufacturing_multiagent_system.svg"
   },
   {
     id: 4,
-    title: "ChemVA Analytics Tool",
-    desc: "I helped build and deploy an interactive visual analytics web app that leverages deep learning to easily process and analyze massive chemical datasets for virtual drug screening.",
-    image: "/prof4.svg",
-    url: "https://example.com/project4"
+    title: "Automated Document Parser for Healthcare Workflows",
+    role: "Architect of Record and Lead Engineer",
+    desc: "Designed and built a production-ready system that automates end-to-end document processing for healthcare workflows. The cloud infrastructure begins with a secure entry gateway that ingests incoming files, splits multi-page documents, checks image quality, and runs text extraction and translation. Next, AI models classify each file and extract specific data fields using strict schemas. Serverless microservices then call external APIs to verify and complete the extracted details. Finally, the validated data is saved into a primary database for daily operations and synced to a cloud warehouse for analytics, backed by enterprise encryption and real-time monitoring.",
+    image: "/professional/doc_parser.svg"
   },
   {
     id: 5,
-    title: "Government Data Warehouse",
-    desc: "I designed automated ETL pipelines to pull together fragmented data from various enterprise and judicial systems into a unified source. This allowed the government agency to finally have a clean, centralized data warehouse. The new architecture completely streamlined how they track internal job pipelines and daily incident reports.\nBy building solid data models, we made sure the information was always accurate and easy to query. This setup gave their teams reliable insights without having to wrestle with messy, raw data sets.",
-    image: "/prof1.svg",
-    url: "https://example.com/project5"
+    title: "Automated ELT Pipelines for Sensitive Data",
+    role: "Lead Data Architect",
+    desc: "Designed the data models, conformed schemas, and end-to-end GCP ELT pipeline supporting seven consuming service workflows and over 150 cross-tenant entities. Built on Cloud Composer, Dataflow, and BigQuery, the pipeline ingests scheduled batch data and applies deterministic tokenization to enable downstream analytics while strictly protecting sensitive PII. To satisfy SOC 2 standards for security, privacy, and processing integrity, I architected the solution with VPC Service Controls, Customer-Managed Encryption Keys (CMEK), and Dataplex policy tags. The design also incorporates a secure reverse-tokenization UDF for authorized compliance audits, fully protected by granular access controls, immutable Cloud Audit Logs, and real-time monitoring via Security Command Center.",
+    image: "/professional/ELT_SOC2.svg"
   },
   {
     id: 6,
-    title: "Oil & Gas Observability",
-    desc: "Working with a Tier-1 Oil and Gas client, I engineered a large-scale observability architecture to monitor their heavy industrial operations. The system was built to easily process over 50,000 telemetry signals every single week without breaking a sweat.\nI also integrated predictive models to help them anticipate equipment issues before they actually happened. All of this complex data was fed into clean, interactive dashboards for the engineering teams. It turned a massive stream of noisy data into clear, actionable insights right on the ground.",
-    image: "/prof2.svg",
-    url: "https://example.com/project6"
-  },
-  {
-    id: 7,
-    title: "Healthcare Automated Workflows",
-    desc: "I structured strict, event-driven data pipelines for a healthcare provider to securely handle highly sensitive patient PII and medical records. This backend supported an agentic AI chatbot designed to efficiently route medical consultations and parse prescription details. The system completely automated their tedious insurance workflows while staying strictly compliant with industry regulations.\nUsing advanced NLP models, we took the manual heavy lifting out of processing unstructured clinical data. This meant the medical staff could spend way less time doing paperwork and more time focusing on actual patient care.",
-    image: "/prof3.svg",
-    url: "https://example.com/project7"
-  },
-  {
-    id: 8,
-    title: "Manufacturing Multiagent System",
-    desc: "I developed a custom multiagent system tailored specifically for a manufacturing client to optimize their factory floor operations. By leveraging the Google Cloud Agent Development Kit (ADK), I built specialized AI agents that seamlessly communicated with each other in real time.\nThese agents worked together to monitor supply chain bottlenecks and dynamically adjust production schedules on the fly. The whole architecture was designed to be easily scalable as the factory added new assembly lines. Ultimately, this intelligent automation took a lot of the guesswork out of their daily logistics.",
-    image: "/prof4.svg",
-    url: "https://example.com/project8"
+    title: "Inbox Automated Workflows",
+    role: "Architect of Record and Lead Engineer",
+    desc: "Designed and built this production-ready system to automate the handling of incoming emails. The workflow starts by securely receiving messages and using AI models to understand the sender's intent and extract key details. We store this information in a fast, structured database and index it for quick searches. Next, serverless functions check the extracted data against standard business rules using external APIs. Finally, the AI drafts a personalized reply; the system either sends this automatically or routes it to a human agent for review if the request is complex. The entire setup runs on a secure cloud network managed by automated orchestrators and is backed by real-time monitoring.",
+    image: "/professional/inbox_automation.svg"
   }
 ];
