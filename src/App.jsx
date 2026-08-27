@@ -10,10 +10,10 @@ import { cvData } from './data';
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(() => {
-    if (typeof window === 'undefined') return true;
+    if (typeof window === 'undefined') return false;
     const saved = window.localStorage.getItem('theme');
     if (saved) return saved === 'dark';
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return false;
   });
 
   const [menuOpen, setMenuOpen] = useState(false);

@@ -87,61 +87,83 @@ export const mediumPosts = [
 ];
 
 export const scientificItems = [
-  { 
-    id: 1, 
-    title: "Using Molecular Embeddings in QSAR Modeling", 
-    desc: "Evaluating the impact of molecular embeddings in Quantitative Structure-Activity Relationship (QSAR) modeling.", 
-    image: "/research/BiB.jpeg", 
-    url: "https://academic.oup.com/bib/article/23/1/bbab365/6366344" 
+  {
+    id: "molecular-representation-qsar",
+    category: "Molecular Representation & QSAR",
+    items: [
+      {
+        id: 1,
+        title: "Using Molecular Embeddings in QSAR Modeling",
+        note: "Evaluating molecular embeddings in Quantitative Structure-Activity Relationship (QSAR) modeling.",
+        url: "https://academic.oup.com/bib/article/23/1/bbab365/6366344"
+      },
+      {
+        id: 3,
+        title: "Multi-Task Deep Neural Networks",
+        note: "Applying multi-task deep neural network architectures for Ames mutagenicity prediction.",
+        url: "https://pubs.acs.org/jcisd8/article-abstract/62/24/6342/884698/Multitask-Deep-Neural-Networks-for-Ames?redirectedFrom=fulltext"
+      },
+      {
+        id: 4,
+        title: "Neural-based Drug Property Prediction",
+        note: "Overcoming feature-selection and applicability-domain limitations in drug-property prediction.",
+        url: "https://www.sciencedirect.com/science/article/pii/S1568494619305587"
+      }
+    ]
   },
-  { 
-    id: 2, 
-    title: "ChemVA: Interactive Visual Analysis", 
-    desc: "Interactive visual analytics tool for exploring chemical compound similarity during virtual screening.", 
-    image: "/research/chemva.png", 
-    url: "https://ieeexplore.ieee.org/abstract/document/9222282" 
+  {
+    id: "visual-analytics-screening",
+    category: "Visual Analytics & Virtual Screening",
+    items: [
+      {
+        id: 2,
+        title: "ChemVA: Interactive Visual Analysis",
+        note: "Visual analytics for exploring chemical compound similarity during virtual screening.",
+        url: "https://ieeexplore.ieee.org/abstract/document/9222282"
+      }
+    ]
   },
-  { 
-    id: 3, 
-    title: "Multi-Task Deep Neural Networks", 
-    desc: "Utilizing multi-task deep neural network architectures for Ames mutagenicity prediction.", 
-    image: "/research/ames.png",
-    url: "https://pubs.acs.org/jcisd8/article-abstract/62/24/6342/884698/Multitask-Deep-Neural-Networks-for-Ames?redirectedFrom=fulltext" 
+  {
+    id: "generative-ai-molecular-design",
+    category: "Generative AI & Explainable Molecular Design",
+    items: [
+      {
+        id: 6,
+        title: "Generative AI for Drug Discovery",
+        note: "A multidimensional taxonomy of generative AI approaches for drug discovery.",
+        url: "https://wires.onlinelibrary.wiley.com/doi/abs/10.1002/widm.70104"
+      },
+      {
+        id: 7,
+        title: "GenAI Explainability in Molecular Design",
+        note: "Interpretable generative models tailored for de novo molecular design.",
+        url: "https://sedici.unlp.edu.ar/handle/10915/195895"
+      }
+    ]
   },
-  { 
-    id: 4, 
-    title: "Neural-based Drug Property Prediction", 
-    desc: "Overcoming feature selection and applicability domain limitations in drug-related property prediction.", 
-    image: "/research/Neural.jpg", 
-    url: "https://www.sciencedirect.com/science/article/pii/S1568494619305587" 
+  {
+    id: "nlp-social-impact",
+    category: "NLP & Social Impact",
+    items: [
+      {
+        id: 5,
+        title: "Detection of Racial Stereotypes in Spanish Text",
+        note: "A multi-task learning approach for low-resource stereotype detection in Spanish.",
+        url: "https://ceur-ws.org/Vol-3202/detests-paper2.pdf"
+      }
+    ]
   },
-  { 
-    id: 5, 
-    title: "Detection of Racial Stereotypes in Spanish Text", 
-    desc: "A multi-task learning approach tailored for the low-resource detection of racial stereotypes in Spanish.", 
-    image: "/research/Malnis.png", 
-    url: "https://ceur-ws.org/Vol-3202/detests-paper2.pdf" 
-  },
-  { 
-    id: 6, 
-    title: "Generative AI for Drug Discovery", 
-    desc: "A multidimensional taxonomy reviewing generative artificial intelligence approaches for drug discovery.", 
-    image: "/research/Trini.jpg", 
-    url: "https://wires.onlinelibrary.wiley.com/doi/abs/10.1002/widm.70104" 
-  },
-  { 
-    id: 7, 
-    title: "GenAI Explainability in Molecualr Design", 
-    desc: "Interpretable generative models tailored for the de novo design of molecules.", 
-    image: "/research/XAI.jpg", 
-    url: "https://sedici.unlp.edu.ar/handle/10915/195895" 
-  },
-  { 
-    id: 8, 
-    title: "My PhD Thesis", 
-    desc: "Deep learning strategies applied to drug discovery.", 
-    image: "/research/Thesis.jpg", 
-    url: "https://repositoriodigital.uns.edu.ar/handle/123456789/6737" 
+  {
+    id: "doctoral-research",
+    category: "Doctoral Research",
+    items: [
+      {
+        id: 8,
+        title: "My PhD Thesis",
+        note: "Deep learning strategies applied to drug discovery.",
+        url: "https://repositoriodigital.uns.edu.ar/handle/123456789/6737"
+      }
+    ]
   }
 ];
 
