@@ -82,10 +82,6 @@ export const cvData = {
   ]
 };
 
-export const mediumPosts = [
-  // No Medium posts or external blog URLs were provided in the resume source.
-];
-
 export const scientificItems = [
   {
     id: "molecular-representation-qsar",

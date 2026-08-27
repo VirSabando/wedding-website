@@ -1,7 +1,10 @@
-import { mediumPosts } from './data';
+import mediumPosts from './content/medium-posts.json';
+
+const MEDIUM_PROFILE_URL = 'https://medium.com/@virsabando';
 
 export default function Blog() {
   const hasPosts = mediumPosts.length > 0;
+  const showMoreLink = mediumPosts.length >= 5;
 
   return (
     <div className="max-w-6xl mx-auto px-4">
@@ -10,12 +13,38 @@ export default function Blog() {
         <p className="text-slate-700 mb-6">I sometimes share my PoV on current trends, challenges and opportunities in the Solution Architecture field in the era of AI-everything. In case you want to pick my brain, you can find me on Medium 😉</p>
         {hasPosts ? (
           <div className="space-y-4">
-            {mediumPosts.map((post, i) => (
-              <a key={i} href={post.url} target="_blank" rel="noreferrer" className="block p-4 border rounded-md hover:shadow-md transition-shadow bg-white">
-                <h3 className="text-lg font-semibold text-slate-900">{post.title}</h3>
-                <p className="text-sm text-slate-500 mt-1">Read on Medium →</p>
+            {mediumPosts.map((post) => (
+              <a key={post.id} href={post.url} target="_blank" rel="noreferrer" className="block p-4 border rounded-md hover:shadow-md transition-shadow bg-white">
+                <div className="flex gap-4 items-start">
+                  {post.thumbnail ? (
+                    <img
+                      src={post.thumbnail}
+                      alt=""
+                      aria-hidden="true"
+                      className="w-20 h-14 sm:w-24 sm:h-16 object-cover rounded-md border border-slate-200 flex-none"
+                    />
+                  ) : null}
+                  <div className="min-w-0">
+                    <h3 className="text-lg font-semibold text-slate-900">{post.title}</h3>
+                    <p className="text-sm text-slate-600 mt-2 leading-relaxed">{post.excerpt}</p>
+                    <p className="text-sm text-slate-500 mt-2">Read on Medium →</p>
+                  </div>
+                </div>
               </a>
             ))}
+
+            {showMoreLink ? (
+              <div className="pt-1">
+                <a
+                  href={MEDIUM_PROFILE_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center text-sm font-semibold text-slate-700 hover:text-slate-900 underline underline-offset-4"
+                >
+                  More
+                </a>
+              </div>
+            ) : null}
           </div>
         ) : (
           <div className="blog-empty-state flex flex-col items-center justify-center text-center rounded-2xl border border-dashed border-slate-200 bg-slate-50 px-6 py-12 sm:py-14 dark:border-white/10 dark:bg-slate-800/80">

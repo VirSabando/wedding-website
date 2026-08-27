@@ -11,7 +11,12 @@ import { cvData } from './data';
 export default function App() {
   const [darkMode, setDarkMode] = useState(() => {
     if (typeof window === 'undefined') return false;
-    const saved = window.localStorage.getItem('theme');
+    let saved = null;
+    try {
+      saved = window.localStorage.getItem('theme');
+    } catch {
+      saved = null;
+    }
     if (saved) return saved === 'dark';
     return false;
   });
@@ -21,7 +26,11 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', darkMode);
-    window.localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+    try {
+      window.localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+    } catch {
+      // Ignore storage write failures (private mode, blocked storage, etc.)
+    }
   }, [darkMode]);
 
   useEffect(() => {
@@ -49,7 +58,8 @@ export default function App() {
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 
         if (visibleSections.length > 0) {
-          setActiveSection(visibleSections[0].target.id);
+          const nextSection = visibleSections[0].target.id;
+          setActiveSection((current) => (current === nextSection ? current : nextSection));
         }
       },
       { root: null, rootMargin: '-50% 0px -50% 0px', threshold: 0 }
@@ -63,7 +73,7 @@ export default function App() {
     <div className="min-h-screen bg-slate-100 text-slate-900">
 
       {/* Navigation Bar (sticky) */}
-      <nav className="relative bg-white shadow-md sticky top-0 z-50 border-b border-slate-200">
+      <nav className="bg-white shadow-md sticky top-0 z-50 border-b border-slate-200">
         <div className="relative max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <a
