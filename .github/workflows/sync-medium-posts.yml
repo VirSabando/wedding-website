@@ -1,0 +1,43 @@
+name: Sync Medium Posts
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 4 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  sync-medium-posts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync latest Medium posts
+        run: npm run sync:medium
+        env:
+          MEDIUM_FEED_URL: ${{ vars.MEDIUM_FEED_URL }}
+
+      - name: Commit updates if changed
+        run: |
+          if git diff --quiet -- src/content/medium-posts.json; then
+            echo "No Medium updates to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/content/medium-posts.json
+          git commit -m "chore: sync Medium posts"
+          git push
