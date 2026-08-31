@@ -41,10 +41,10 @@ export default function App() {
   }, []);
 
   const navLinks = [
-    { id: 'when-where', label: 'When & Where' },
-    { id: 'dress-code', label: 'Dress Code' },
-    { id: 'info',       label: 'Good to Know' },
-    { id: 'rsvp',       label: 'RSVP' },
+    { id: 'when-where', label: 'Cuándo y Dónde' },
+    { id: 'dress-code', label: 'Vestimenta' },
+    { id: 'info',       label: 'Info' },
+    { id: 'rsvp',       label: 'Confirmación' },
   ];
 
   return (
@@ -77,7 +77,7 @@ export default function App() {
             onClick={() => setMenuOpen((v) => !v)}
             className="lg:hidden rounded-full border p-2 flex items-center justify-center transition"
             style={{ borderColor: 'var(--border-color)', background: 'var(--surface)', color: 'var(--brown)' }}
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={menuOpen}
           >
             {menuOpen ? (

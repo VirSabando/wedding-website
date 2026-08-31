@@ -5,9 +5,9 @@ export default function DressCode() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-      <p className="section-label mb-2">Come looking gorgeous</p>
+      <p className="section-label mb-2">¡Vení bien elegante!</p>
       <h2 className="wedding-title text-4xl sm:text-5xl mb-6" style={{ color: 'var(--brown)' }}>
-        Dress Code
+        Vestimenta
       </h2>
 
       <div
@@ -20,7 +20,7 @@ export default function DressCode() {
 
         {/* Color palette */}
         <div className="mt-8">
-          <p className="section-label mb-4">Our palette</p>
+          <p className="section-label mb-4">Nuestra paleta</p>
           <div className="flex flex-wrap gap-4 items-center">
             {dressCode.palette.map(({ name, hex }) => (
               <div key={name} className="flex flex-col items-center gap-2">
@@ -44,7 +44,7 @@ export default function DressCode() {
           style={{ background: 'var(--surface-soft)', border: '1px solid var(--border-color)' }}
         >
           <p className="text-sm font-semibold mb-2" style={{ color: 'var(--brown)' }}>
-            Please avoid:
+            Por favor evitá:
           </p>
           <div className="flex gap-2 flex-wrap">
             {dressCode.avoid.map((color) => (

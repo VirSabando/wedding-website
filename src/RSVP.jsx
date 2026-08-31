@@ -41,12 +41,12 @@ export default function RSVP() {
   return (
     <div className="max-w-xl mx-auto px-4 sm:px-6">
       <div className="text-center mb-10">
-        <p className="section-label mb-2">Don't forget!</p>
+        <p className="section-label mb-2">¡No te olvides!</p>
         <h2 className="wedding-title text-4xl sm:text-5xl" style={{ color: 'var(--brown)' }}>
-          RSVP
+          Confirmación
         </h2>
         <p className="mt-3 text-sm" style={{ color: 'var(--muted)' }}>
-          Please respond by <strong style={{ color: 'var(--brown)' }}>TODO: deadline</strong>
+          Por favor confirmá antes del <strong style={{ color: 'var(--brown)' }}>TODO: fecha límite</strong>
         </p>
       </div>
 
@@ -57,9 +57,9 @@ export default function RSVP() {
         >
           <p style={{ fontSize: '3rem' }}>🌿</p>
           <h3 className="wedding-heading text-2xl mt-4 mb-2" style={{ color: 'var(--brown)' }}>
-            Thank you!
+            ¡Gracias!
           </h3>
-          <p style={{ color: 'var(--muted)' }}>We can't wait to celebrate with you.</p>
+          <p style={{ color: 'var(--muted)' }}>No podemos esperar para celebrar con vos.</p>
         </div>
       ) : (
         <form
@@ -70,14 +70,14 @@ export default function RSVP() {
           {/* Name */}
           <div className="mb-5">
             <label className="block text-sm font-semibold mb-1.5" style={{ color: 'var(--brown)' }}>
-              Full Name <span style={{ color: 'var(--sage)' }}>*</span>
+              Nombre completo <span style={{ color: 'var(--sage)' }}>*</span>
             </label>
             <input
               type="text"
               name="name"
               value={form.name}
               onChange={handleChange}
-              placeholder="Your name"
+              placeholder="Tu nombre"
               className="rsvp-input"
               required
               autoComplete="name"
@@ -87,16 +87,16 @@ export default function RSVP() {
           {/* Attending */}
           <div className="mb-5">
             <label className="block text-sm font-semibold mb-2" style={{ color: 'var(--brown)' }}>
-              Will you attend? <span style={{ color: 'var(--sage)' }}>*</span>
+              ¿Vas a venir? <span style={{ color: 'var(--sage)' }}>*</span>
             </label>
             <div className="rsvp-radio-group">
               <label className="rsvp-radio-option">
                 <input type="radio" name="attending" value="yes" checked={form.attending === 'yes'} onChange={handleChange} required />
-                <span>🥂 Yes, I'll be there!</span>
-              </label>
+                <span>🥂 ¡Ahí voy a estar!</span>
+               </label>
               <label className="rsvp-radio-option">
                 <input type="radio" name="attending" value="no" checked={form.attending === 'no'} onChange={handleChange} />
-                <span>😢 Can't make it</span>
+                <span>😢 No voy a poder ir</span>
               </label>
             </div>
           </div>
@@ -104,14 +104,14 @@ export default function RSVP() {
           {/* Dietary */}
           <div className="mb-5">
             <label className="block text-sm font-semibold mb-1.5" style={{ color: 'var(--brown)' }}>
-              Dietary Restrictions
-              <span className="ml-1 font-normal text-xs" style={{ color: 'var(--muted)' }}>(optional)</span>
+              Restricciones alimentarias
+              <span className="ml-1 font-normal text-xs" style={{ color: 'var(--muted)' }}>(opcional)</span>
             </label>
             <textarea
               name="dietary"
               value={form.dietary}
               onChange={handleChange}
-              placeholder="Allergies, vegetarian, vegan, gluten-free…"
+              placeholder="Alergias, vegetariano/a, vegano/a, sin gluten…"
               className="rsvp-textarea"
             />
           </div>
@@ -119,23 +119,23 @@ export default function RSVP() {
           {/* Bus */}
           <div className="mb-7">
             <label className="block text-sm font-semibold mb-2" style={{ color: 'var(--brown)' }}>
-              Do you need a shuttle bus seat? <span style={{ color: 'var(--sage)' }}>*</span>
+              ¿Necesitás lugar en el micro? <span style={{ color: 'var(--sage)' }}>*</span>
             </label>
             <div className="rsvp-radio-group">
               <label className="rsvp-radio-option">
                 <input type="radio" name="bus" value="yes" checked={form.bus === 'yes'} onChange={handleChange} required />
-                <span>🚌 Yes please!</span>
-              </label>
+                <span>🚌 ¡Sí, por favor!</span>
+               </label>
               <label className="rsvp-radio-option">
                 <input type="radio" name="bus" value="no" checked={form.bus === 'no'} onChange={handleChange} />
-                <span>I have my own ride</span>
+                <span>Me arreglo por mi cuenta</span>
               </label>
             </div>
           </div>
 
           {status === 'error' && (
             <p className="text-sm mb-4 px-3 py-2 rounded-lg" style={{ background: '#FEE2E2', color: '#B91C1C' }}>
-              Something went wrong. Please try again or reach out to us directly.
+              Algo salió mal. Por favor intentá de nuevo o contactanos directamente.
             </p>
           )}
 
@@ -144,7 +144,7 @@ export default function RSVP() {
             disabled={!isValid || status === 'loading'}
             className="rsvp-submit w-full"
           >
-            {status === 'loading' ? 'Sending…' : 'Send RSVP'}
+            {status === 'loading' ? 'Enviando…' : 'Confirmar asistencia'}
           </button>
         </form>
       )}

@@ -21,10 +21,10 @@ export default function Home() {
   }, []);
 
   const units = [
-    { value: timeLeft.days,    label: 'Days' },
-    { value: timeLeft.hours,   label: 'Hours' },
-    { value: timeLeft.minutes, label: 'Minutes' },
-    { value: timeLeft.seconds, label: 'Seconds' },
+    { value: timeLeft.days,    label: 'Días' },
+    { value: timeLeft.hours,   label: 'Horas' },
+    { value: timeLeft.minutes, label: 'Minutos' },
+    { value: timeLeft.seconds, label: 'Segundos' },
   ];
 
   return (
@@ -36,7 +36,7 @@ export default function Home() {
       <p className="ornament mb-6">✦ ✦ ✦</p>
 
       {/* Label */}
-      <p className="section-label mb-4">We're getting married!</p>
+      <p className="section-label mb-4">¡Nos casamos!</p>
 
       {/* Names */}
       <h1
@@ -63,7 +63,7 @@ export default function Home() {
       />
 
       {/* Countdown */}
-      <p className="section-label mb-5">Counting down</p>
+      <p className="section-label mb-5">La cuenta regresiva</p>
       <div className="flex gap-3 sm:gap-5 flex-wrap justify-center">
         {units.map(({ value, label }) => (
           <div key={label} className="countdown-box">
@@ -86,7 +86,7 @@ export default function Home() {
           letterSpacing: '0.15em',
         }}
       >
-        RSVP
+        Confirmar asistencia
       </a>
 
       {/* Ornament bottom */}

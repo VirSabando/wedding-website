@@ -1,5 +1,5 @@
-// src/data.js  — Wedding data for Viejo & Vir
-// ✏️  Update all placeholder values marked with TODO before publishing
+// src/data.js  — Datos de la boda de Viejo & Vir
+// ✏️  Actualizá los valores marcados con TODO antes de publicar
 
 export const weddingData = {
   couple: {
@@ -7,73 +7,74 @@ export const weddingData = {
     person2: "Vir",
   },
 
-  // TODO: Set the actual wedding date (ISO format YYYY-MM-DD)
-  date: "2027-06-01",
-  // TODO: Set a friendly display date
-  dateDisplay: "June 1st, 2027",
+  date: "2027-02-13",
+  dateDisplay: "13 de Febrero de 2027",
 
   ceremony: {
-    time: "5:00 PM",                         // TODO
-    venueName: "Venue Name",                 // TODO
-    address: "123 Example St, City, Country", // TODO
-    mapsUrl: "https://maps.google.com",       // TODO
+    date: "Viernes 12 de Febrero",
+    time: "11:00 hs",
+    venueName: "Delegación Registro Provincial de las Personas",
+    address: "Avenida San Martín 3466, Ingeniero White",
+    mapsUrl: "https://maps.app.goo.gl/SdBs7ggSv7yU1ieB9",
   },
 
   reception: {
-    time: "7:00 PM",                         // TODO
-    venueName: "Reception Venue",            // TODO
-    address: "123 Example St, City, Country", // TODO
-    mapsUrl: "https://maps.google.com",       // TODO
-    sameAsVenue: false,                       // set true if same place as ceremony
+    date: "Sábado 13 de Febrero",
+    time: "12:00 hs a 20:00 hs",
+    venueName: "Único Eventos",
+    address: "Río Bermejo S/N, Punta Alta",
+    mapsUrl: "https://maps.app.goo.gl/7x5rHRgCfzH7r5K36",
+    sameAsVenue: false,
   },
 
   bus: {
-    pickupLocation: "Meeting point address", // TODO
-    pickupTime: "4:15 PM",                  // TODO
-    returnTime: "1:00 AM",                  // TODO
+    pickupLocation: "Punto de encuentro",          // TODO
+    pickupTime: "16:15 hs",                        // TODO
+    returnTime: "01:00 hs",                        // TODO
   },
 
   dressCode: {
-    title: "Dress Code",
+    title: "Código de vestimenta",
     description:
-      "We'd love for you to dress in our wedding palette — think earthy, elegant, and relaxed. " +
-      "Sage greens, warm beiges, dusty creams, and muted gold tones are all welcome. " +
-      "Please avoid white, ivory, and black so our photos stay colorful!",
+      "Nos encantaría que te vistas con nuestra paleta de colores — pensá en algo terroso, elegante y relajado. " +
+      "Verdes salvia, beiges cálidos, cremas suaves y tonos dorados apagados son bienvenidos. " +
+      "¡Por favor evitá el blanco, el marfil y el negro para que nuestras fotos queden bien coloridas!",
     palette: [
-      { name: "Sage Green",  hex: "#7D9B76" },
-      { name: "Warm Beige",  hex: "#E8DCC8" },
-      { name: "Dark Gold",   hex: "#C9A227" },
-      { name: "Dark Brown",  hex: "#5C3D2E" },
-      { name: "Dusty Cream", hex: "#F5EDD9" },
+      { name: "Verde Salvia",  hex: "#7D9B76" },
+      { name: "Beige Cálido",  hex: "#E8DCC8" },
+      { name: "Dorado Oscuro", hex: "#C9A227" },
+      { name: "Marrón Oscuro", hex: "#5C3D2E" },
+      { name: "Crema Suave",   hex: "#F5EDD9" },
     ],
-    avoid: ["White", "Ivory", "Black"],
+    avoid: ["Blanco", "Marfil", "Negro"],
   },
 
   importantInfo: [
     {
       icon: "🎁",
-      title: "Gifts",
-      text: "Your presence is the greatest gift. If you'd like to contribute, we have a honeymoon fund — details to follow.", // TODO
+      title: "Regalos",
+      text: "Tu presencia es el mejor regalo. Si querés contribuir con algo más, tenemos un fondo de luna de miel — los detalles los compartimos pronto.", // TODO
     },
     {
-      icon: "📸",
-      title: "Photos",
-      text: "We'll have a professional photographer. Feel free to take photos during the reception, but please keep your phones away during the ceremony.",
+      icon: "🧡",
+      title: "Boda sin niñxs",
+      text: "Para que todos podamos disfrutar la noche sin preocupaciones, esta es una celebración solo para adultos. ¡Gracias por entender!",
     },
     {
       icon: "🚗",
-      title: "Parking",
-      text: "Free parking is available at the venue. If you're taking the bus, no need to worry!", // TODO
+      title: "Estacionamiento",
+      text: "Hay estacionamiento gratuito en el lugar. Si venís en el micro, ¡no te preocupes por esto!", // TODO
     },
     {
       icon: "🌿",
-      title: "Dietary Needs",
-      text: "We'll have vegetarian and vegan options. Let us know about any allergies or restrictions in the RSVP form below.",
+      title: "Alimentación",
+      text: "Habrá opciones vegetarianas y veganas. Contanos en el formulario de confirmación si tenés alguna restricción o alergia.",
     },
   ],
 
-  // TODO: Replace with your Formspree form ID
-  // Sign up at https://formspree.io, create a form, and paste the form ID here.
+  // TODO: Reemplazá con tu ID de formulario de Formspree
+  // Registrate en https://formspree.io, creá un formulario y pegá el ID acá.
   rsvpFormEndpoint: "https://formspree.io/f/YOUR_FORM_ID",
 };
+
 
