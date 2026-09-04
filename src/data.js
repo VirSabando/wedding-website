@@ -11,6 +11,12 @@ export const weddingData = {
   dateDisplay: "12 y 13 de febrero 2027",
   countdownTarget: "2027-02-12T11:00:00-03:00",
 
+  // Fondos de la sección Home.
+  // Desktop y tablets anchos: horizontal.
+  // Móviles en vertical: vertical.
+  homeBackgroundImageDesktopUrl: "/photos/home-background-horizontal.jpg",
+  homeBackgroundImageMobileVerticalUrl: "/photos/home-background-vertical.jpg",
+
   ceremony: {
     date: "Viernes 12 de Febrero",
     time: "11:00 hs",

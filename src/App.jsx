@@ -61,7 +61,7 @@ export default function App() {
             className="wedding-heading text-lg text-brown font-semibold hover:opacity-70 transition-opacity"
             style={{ color: 'var(--brown)' }}
           >
-            {weddingData.couple.person1} &amp; {weddingData.couple.person2}
+            {weddingData.couple.person1} <span className="couple-ampersand">&amp;</span> {weddingData.couple.person2}
           </a>
 
           {/* Desktop nav */}
@@ -142,7 +142,7 @@ export default function App() {
         <footer className="py-10 text-center" style={{ color: 'var(--muted)', fontSize: '0.8rem', letterSpacing: '0.12em' }}>
           <p className="ornament mb-3">✦ ✦ ✦</p>
           <p style={{ textTransform: 'uppercase' }}>
-            {weddingData.couple.person1} &amp; {weddingData.couple.person2} · {weddingData.dateDisplay}
+            {weddingData.couple.person1} <span className="couple-ampersand">&amp;</span> {weddingData.couple.person2} · {weddingData.dateDisplay}
           </p>
         </footer>
       </main>
