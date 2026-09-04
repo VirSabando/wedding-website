@@ -8,7 +8,8 @@ export const weddingData = {
   },
 
   date: "2027-02-13",
-  dateDisplay: "13 de Febrero de 2027",
+  dateDisplay: "12 y 13 de febrero 2027",
+  countdownTarget: "2027-02-12T11:00:00-03:00",
 
   ceremony: {
     date: "Viernes 12 de Febrero",
@@ -71,6 +72,24 @@ export const weddingData = {
       text: "Habrá opciones vegetarianas y veganas. Contanos en el formulario de confirmación si tenés alguna restricción o alergia.",
     },
   ],
+
+  // Lista rápida para que el RSVP detecte cuántas personas tiene cada invitación.
+  // Podés tener grupos de 1, 2 o más personas, siempre con nombres exactos.
+  rsvpInvitations: [
+    { id: 'inv-001', members: ['Nombre Apellido'] },
+    { id: 'inv-002', members: ['Nombre Pareja 1', 'Nombre Pareja 2'] },
+    { id: 'inv-003', members: ['Nombre Grupo 1', 'Nombre Grupo 2', 'Nombre Grupo 3'] },
+  ],
+
+  // Si publicás una planilla como CSV, el RSVP la usa para validación estricta.
+  // Headers recomendados: group_id, full_name
+  // Ejemplo: https://docs.google.com/spreadsheets/d/<ID>/gviz/tq?tqx=out:csv
+  rsvpSpreadsheetCsvUrl: "https://docs.google.com/spreadsheets/d/1LbmFDIZp3AXlhCHHI3Ps1E3h8Bnh2x2Doglt02D0Bb0/gviz/tq?tqx=out:csv",
+
+  // Endpoint para guardar respuestas en Google Sheets (Apps Script Web App).
+  // TODO: Reemplazar cuando publiques el script.
+  // Ejemplo: https://script.google.com/macros/s/AKfycb.../exec
+  rsvpSubmitEndpoint: "https://script.google.com/macros/s/AKfycbw7p9bHO5dJILileQai4EI6TJI4ugrRYlzL67RIaUKQRxwwHDs4QGRQ8MFMhyF808p6GQ/exec",
 
   // TODO: Reemplazá con tu ID de formulario de Formspree
   // Registrate en https://formspree.io, creá un formulario y pegá el ID acá.

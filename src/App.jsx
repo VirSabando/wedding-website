@@ -4,6 +4,7 @@ import WhenWhere from './WhenWhere';
 import DressCode from './DressCode';
 import ImportantInfo from './ImportantInfo';
 import RSVP from './RSVP';
+import Checklist from './Checklist';
 import { weddingData } from './data';
 
 export default function App() {
@@ -20,7 +21,7 @@ export default function App() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const sectionIds = ['home', 'when-where', 'dress-code', 'info', 'rsvp'];
+    const sectionIds = ['home', 'when-where', 'dress-code', 'checklist', 'info', 'rsvp'];
     const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
     if (!sections.length) return;
 
@@ -42,8 +43,9 @@ export default function App() {
 
   const navLinks = [
     { id: 'when-where', label: 'Cuándo y Dónde' },
-    { id: 'dress-code', label: 'Vestimenta' },
-    { id: 'info',       label: 'Info' },
+    { id: 'dress-code', label: 'Dress code' },
+    { id: 'checklist',  label: 'Checklist' },
+    { id: 'info',       label: 'Info importante' },
     { id: 'rsvp',       label: 'Confirmación' },
   ];
 
@@ -123,6 +125,10 @@ export default function App() {
 
         <section id="dress-code" className="section py-16">
           <DressCode />
+        </section>
+
+        <section id="checklist" className="section py-16">
+          <Checklist />
         </section>
 
         <section id="info" className="section py-16">

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { weddingData } from './data';
 
 function calculateTimeLeft(targetDate) {
@@ -13,12 +13,14 @@ function calculateTimeLeft(targetDate) {
 }
 
 export default function Home() {
-  const [timeLeft, setTimeLeft] = useState(() => calculateTimeLeft(weddingData.date));
+  const countdownTarget = weddingData.countdownTarget || weddingData.date;
+  const [timeLeft, setTimeLeft] = useState(() => calculateTimeLeft(countdownTarget));
+  const hasFiredConfettiRef = useRef(false);
 
   useEffect(() => {
-    const timer = setInterval(() => setTimeLeft(calculateTimeLeft(weddingData.date)), 1000);
+    const timer = setInterval(() => setTimeLeft(calculateTimeLeft(countdownTarget)), 1000);
     return () => clearInterval(timer);
-  }, []);
+  }, [countdownTarget]);
 
   const units = [
     { value: timeLeft.days,    label: 'Días' },
@@ -26,6 +28,31 @@ export default function Home() {
     { value: timeLeft.minutes, label: 'Minutos' },
     { value: timeLeft.seconds, label: 'Segundos' },
   ];
+  const isCountdownComplete = units.every(({ value }) => value === 0);
+
+  useEffect(() => {
+    if (!isCountdownComplete || hasFiredConfettiRef.current) return;
+    if (typeof window === 'undefined') return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    hasFiredConfettiRef.current = true;
+    import('canvas-confetti').then(({ default: confetti }) => {
+      const defaults = { origin: { y: 0.6 } };
+      const fire = (particleRatio, options) => {
+        confetti({
+          ...defaults,
+          ...options,
+          particleCount: Math.floor(160 * particleRatio),
+        });
+      };
+
+      fire(0.25, { spread: 26, startVelocity: 55 });
+      fire(0.2, { spread: 60 });
+      fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
+      fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.1 });
+      fire(0.1, { spread: 120, startVelocity: 45 });
+    });
+  }, [isCountdownComplete]);
 
   return (
     <div
@@ -64,16 +91,29 @@ export default function Home() {
 
       {/* Countdown */}
       <p className="section-label mb-5">La cuenta regresiva</p>
-      <div className="flex gap-3 sm:gap-5 flex-wrap justify-center">
-        {units.map(({ value, label }) => (
-          <div key={label} className="countdown-box">
-            <span className="countdown-number">
-              {String(value).padStart(2, '0')}
-            </span>
-            <span className="countdown-label">{label}</span>
-          </div>
-        ))}
-      </div>
+      {isCountdownComplete ? (
+        <p
+          className="wedding-heading text-2xl sm:text-3xl px-6 py-4 rounded-2xl border animate-pulse"
+          style={{
+            color: 'var(--brown)',
+            background: 'var(--surface)',
+            borderColor: 'var(--border-color)',
+          }}
+        >
+          ¡Llegó el gran día!
+        </p>
+      ) : (
+        <div className="flex gap-3 sm:gap-5 flex-wrap justify-center">
+          {units.map(({ value, label }) => (
+            <div key={label} className="countdown-box">
+              <span className="countdown-number">
+                {String(value).padStart(2, '0')}
+              </span>
+              <span className="countdown-label">{label}</span>
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* CTA */}
       <a
