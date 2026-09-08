@@ -7,8 +7,8 @@ export default function ImportantInfo() {
     },
     {
       icon: '🧡',
-      title: 'Celebración sin niñes',
-      text: 'El espacio no está adaptado a niñes y queremos que todes puedan disfrutar sin preocupaciones. ¡Gracias por entender!',
+      title: 'Celebración sin niñxs',
+      text: 'El espacio no está adaptado a infancias y queremos que todxs puedan disfrutar sin preocupaciones. ¡Gracias por entender!',
     },
     {
       icon: '🚌',
