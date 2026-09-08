@@ -21,7 +21,7 @@ export default function App() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const sectionIds = ['home', 'when-where', 'dress-code', 'checklist', 'info', 'rsvp'];
+    const sectionIds = ['home', 'when-where', 'dress-code', 'info', 'checklist', 'rsvp'];
     const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
     if (!sections.length) return;
 
@@ -127,12 +127,12 @@ export default function App() {
           <DressCode />
         </section>
 
-        <section id="checklist" className="section py-16">
-          <Checklist />
-        </section>
-
         <section id="info" className="section py-16">
           <ImportantInfo />
+        </section>
+
+        <section id="checklist" className="section py-16">
+          <Checklist />
         </section>
 
         <section id="rsvp" className="section py-16">

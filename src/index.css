@@ -18,18 +18,21 @@
 }
 
 :root {
-	--page-bg: #F5EDD9;
-	--page-text: #3D2314;
-	--surface: #FEFAF3;
-	--surface-soft: #EDE0C4;
-	--border-color: rgba(92, 61, 46, 0.18);
-	--muted: #8B6355;
-	--sage: #7D9B76;
-	--sage-light: #A8C4A2;
-	--gold: #C9A227;
-	--gold-light: #E8C459;
-	--brown: #5C3D2E;
-	--brown-mid: #8B6355;
+	--verde: #7e7a36;
+	--beige-fondo: #fff2e3;
+	--marron-oscuro: #472f1f;
+	--page-bg: var(--beige-fondo);
+	--page-text: var(--marron-oscuro);
+	--surface: #fffaf4;
+	--surface-soft: #f5e6d0;
+	--border-color: rgba(71, 47, 31, 0.18);
+	--muted: #7b5a49;
+	--sage: var(--verde);
+	--sage-light: #a39e63;
+	--gold: #9a8450;
+	--gold-light: #c9b27a;
+	--brown: var(--marron-oscuro);
+	--brown-mid: #7b5a49;
 }
 
 html {
@@ -101,7 +104,7 @@ body {
 }
 
 .mobile-nav-menu {
-	background: rgba(254, 250, 243, 0.97) !important;
+	background: rgba(255, 250, 244, 0.97) !important;
 	border-color: var(--border-color) !important;
 }
 
@@ -198,7 +201,7 @@ body {
 
 .rsvp-input:focus {
 	border-color: var(--sage);
-	box-shadow: 0 0 0 3px rgba(125, 155, 118, 0.15);
+	box-shadow: 0 0 0 3px rgba(126, 122, 54, 0.15);
 }
 
 .rsvp-textarea {
@@ -218,7 +221,7 @@ body {
 
 .rsvp-textarea:focus {
 	border-color: var(--sage);
-	box-shadow: 0 0 0 3px rgba(125, 155, 118, 0.15);
+	box-shadow: 0 0 0 3px rgba(126, 122, 54, 0.15);
 }
 
 .rsvp-radio-group {
@@ -267,16 +270,16 @@ body {
 }
 
 .rsvp-pill.active {
-	background: rgba(125, 155, 118, 0.12);
+	background: rgba(126, 122, 54, 0.12);
 	border-color: var(--sage);
 	color: var(--brown);
 }
 
 .rsvp-guest-card {
-	border: 1px dashed rgba(92, 61, 46, 0.3);
+	border: 1px dashed rgba(71, 47, 31, 0.3);
 	border-radius: 1rem;
 	padding: 1rem;
-	background: rgba(245, 237, 217, 0.3);
+	background: rgba(255, 242, 227, 0.3);
 }
 
 .rsvp-inline-row {
@@ -301,7 +304,7 @@ body {
 .rsvp-secondary-btn:hover,
 .rsvp-tertiary-btn:hover {
 	border-color: var(--sage);
-	background: rgba(125, 155, 118, 0.08);
+	background: rgba(126, 122, 54, 0.08);
 }
 
 .rsvp-secondary-btn {
@@ -313,7 +316,7 @@ body {
 	border: 1px solid var(--border-color);
 	border-radius: 0.75rem;
 	padding: 0.75rem;
-	background: rgba(245, 237, 217, 0.35);
+	background: rgba(255, 242, 227, 0.35);
 }
 
 .rsvp-result-item {
@@ -336,11 +339,11 @@ body {
 
 .rsvp-result-item:hover {
 	border-color: var(--sage);
-	background: rgba(125, 155, 118, 0.08);
+	background: rgba(126, 122, 54, 0.08);
 }
 
 .rsvp-input[readonly] {
-	background: rgba(125, 155, 118, 0.08);
+	background: rgba(126, 122, 54, 0.08);
 	border-style: dashed;
 	cursor: default;
 }
@@ -384,7 +387,7 @@ body {
 	width: 48px;
 	height: 48px;
 	border-radius: 50%;
-	border: 2px solid rgba(92, 61, 46, 0.12);
+	border: 2px solid rgba(71, 47, 31, 0.12);
 	flex-shrink: 0;
 }
 
@@ -419,7 +422,7 @@ body {
 	left: 0;
 	right: 0;
 	height: 3px;
-	background: linear-gradient(90deg, var(--sage), var(--gold));
+	background: linear-gradient(90deg, var(--sage), var(--brown));
 }
 
 @keyframes dressCardIn {

@@ -44,14 +44,12 @@ export const weddingData = {
     title: "Código de vestimenta",
     description:
       "Nos encantaría que te vistas con nuestra paleta de colores — pensá en algo terroso, elegante y relajado. " +
-      "Verdes salvia, beiges cálidos, cremas suaves y tonos dorados apagados son bienvenidos. " +
+      "Verde oliva, beige fondo y marrón oscuro son bienvenidos. " +
       "¡Por favor evitá el blanco, el marfil y el negro para que nuestras fotos queden bien coloridas!",
     palette: [
-      { name: "Verde Salvia",  hex: "#7D9B76" },
-      { name: "Beige Cálido",  hex: "#E8DCC8" },
-      { name: "Dorado Oscuro", hex: "#C9A227" },
-      { name: "Marrón Oscuro", hex: "#5C3D2E" },
-      { name: "Crema Suave",   hex: "#F5EDD9" },
+      { name: "Verde", hex: "#7e7a36" },
+      { name: "Beige Fondo", hex: "#fff2e3" },
+      { name: "Marrón Oscuro", hex: "#472f1f" },
     ],
     avoid: ["Blanco", "Marfil", "Negro"],
   },

@@ -98,15 +98,15 @@ export default function Home() {
     >
       {backgroundImageUrl && (
         <div
-          className={`absolute inset-0 bg-top bg-contain md:bg-center md:bg-cover bg-no-repeat transition-all duration-[1800ms] ease-out ${bgVisible ? 'opacity-60 scale-100' : 'opacity-0 scale-105'}`}
-          style={{ backgroundImage: `url(${backgroundImageUrl})` }}
+          className={`absolute inset-0 bg-top bg-contain md:bg-center md:bg-cover bg-no-repeat transition-all ease-out ${bgVisible ? 'opacity-60 scale-100' : 'opacity-0 scale-105'}`}
+          style={{ backgroundImage: `url(${backgroundImageUrl})`, transitionDuration: '1800ms' }}
           aria-hidden
         />
       )}
 
       <div
         className={`absolute inset-0 transition-opacity duration-1000 ${bgVisible ? 'opacity-100' : 'opacity-0'}`}
-        style={{ background: 'linear-gradient(160deg, rgba(245, 237, 217, 0.46) 0%, rgba(237, 224, 196, 0.56) 100%)' }}
+        style={{ background: 'linear-gradient(160deg, rgba(255, 242, 227, 0.46) 0%, rgba(245, 230, 208, 0.56) 100%)' }}
         aria-hidden
       />
 
@@ -130,7 +130,7 @@ export default function Home() {
       {/* Date */}
       <p
         className="wedding-heading text-xl sm:text-2xl mt-4 mb-10"
-        style={{ color: 'var(--gold)', letterSpacing: '0.12em' }}
+        style={{ color: 'var(--brown-mid)', letterSpacing: '0.12em' }}
       >
         {weddingData.dateDisplay}
       </p>
@@ -138,7 +138,7 @@ export default function Home() {
       {/* Divider */}
       <div
         className="w-24 h-px mb-10"
-        style={{ background: 'linear-gradient(90deg, transparent, var(--gold), transparent)' }}
+        style={{ background: 'linear-gradient(90deg, transparent, var(--sage), transparent)' }}
       />
 
       {/* Countdown */}

@@ -1,43 +1,36 @@
-const placeholder = '/dresscode/placeholder.svg';
-const pinterestBoardUrl = 'https://www.pinterest.com/';
-
 const subsections = [
   {
     id: 'summer-chic',
-    title: 'Dress code',
-    text: 'Summer chic: fresque, elegante y cómode. Podés elegir los colores y estampados que más te representen; pensá que celebramos de día y en pleno verano.',
+    title: 'Dress Code: Summer Chic',
+    text: 'Vestite con un estilo fresco, elegante y cómodo para un día de verano. Elegí los colores y estampados que más te gusten, con telas livianas y calzado cómodo para celebrar al aire libre. Tené en cuenta que es una pool party, así que no olvides traer tu malla!',
     ideas: [
-      { src: placeholder, label: 'Lino liviano', note: 'Camisa, vestido o conjunto ligero' },
-      { src: placeholder, label: 'Estampados suaves', note: 'Floral, rayas o tonos cálidos' },
-      { src: placeholder, label: 'Chic relajado', note: 'Elegante sin perder comodidad' },
-    ],
-  },
-  {
-    id: 'pool-party',
-    title: 'Es una pool party',
-    text: 'Es una pool party, así que vení preparade para mojarte: traé malla, calzado cómode, lentes de sol y protector solar. Sí, la pile es parte del plan.',
-    ideas: [
-      { src: placeholder, label: 'Malla lista', note: 'Enteriza o short de baño debajo' },
-      { src: placeholder, label: 'Calzado cómodo', note: 'Sandalias o zapatillas livianas' },
-      { src: placeholder, label: 'Sol de verano', note: 'Lentes y protector infaltables' },
-    ],
-  },
-  {
-    id: 'celebracion',
-    title: 'Nuestra celebración',
-    text: 'Queremos que vivas este día con libertad y alegría: armá un look que te haga sentir bien, te deje moverte con comodidad y te acompañe desde el brindis hasta el último baile.',
-    ideas: [
-      { src: placeholder, label: 'Mood del día', note: 'Alegre, canchero y relajado' },
-      { src: placeholder, label: 'Detalle personal', note: 'Sumá tu estilo sin miedo' },
-      { src: placeholder, label: 'Look final', note: 'Pensado para bailar y disfrutar' },
+      {
+        src: '/photos/vestidos.jpg',
+        label: 'Vestidos, enteritos y conjuntos',
+        href: 'https://pin.it/4frI81A6P',
+      },
+      {
+        src: '/photos/de_traje.jpg',
+        label: 'De traje',
+        href: 'https://pin.it/7IAuqkof3',
+      },
+      {
+        src: '/photos/accesorios.jpg',
+        label: 'Accesorios y calzado',
+        href: 'https://pin.it/8gsNbmjKo',
+      },
     ],
   },
 ];
 
-function InspirationCard({ src, label, note, delay }) {
+function InspirationCard({ src, label, href, delay }) {
   return (
-    <article
-      className="dress-fade-in group rounded-xl p-3 sm:p-4 border shadow-md transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl"
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`Abrir Pinterest board ${label}`}
+      className="dress-fade-in group block rounded-xl p-3 sm:p-4 border shadow-md transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
       style={{
         background: 'var(--surface)',
         borderColor: 'var(--border-color)',
@@ -48,13 +41,13 @@ function InspirationCard({ src, label, note, delay }) {
         <img
           src={src}
           alt={label}
-          className="w-full aspect-[4/5] object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+          className="w-full aspect-4/5 object-cover transition-transform duration-500 ease-out group-hover:scale-105"
           loading="lazy"
+          decoding="async"
         />
       </div>
       <p className="mt-3 wedding-heading text-lg" style={{ color: 'var(--brown)' }}>{label}</p>
-      <p className="text-sm" style={{ color: 'var(--muted)' }}>{note}</p>
-    </article>
+    </a>
   );
 }
 
@@ -66,17 +59,7 @@ export default function DressCode() {
         Dress code
       </h2>
       <p className="max-w-3xl mx-auto mb-12" style={{ color: 'var(--muted)' }}>
-        Inspiración para venir espectacular, cómode y liste para disfrutar todo el día. ¿Necesitás inspiración? Mirá nuestro{' '}
-        <a
-          href={pinterestBoardUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="underline underline-offset-4 transition-opacity hover:opacity-75"
-          style={{ color: 'var(--sage)' }}
-        >
-          board de Pinterest
-        </a>
-        .
+        ¿No sabés qué ponerte? Te dejamos algunas ideas para inspirarte y armar un look cómodo, fresco y en sintonía con la celebración.
       </p>
 
       <div className="space-y-14 text-left">
@@ -102,7 +85,7 @@ export default function DressCode() {
                   key={`${section.id}-${ideaIndex}`}
                   src={idea.src}
                   label={idea.label}
-                  note={idea.note}
+                  href={idea.href}
                   delay={120 + sectionIndex * 140 + ideaIndex * 90}
                 />
               ))}

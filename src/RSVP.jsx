@@ -4,17 +4,17 @@ import { weddingData } from './data';
 const makeGuest = (name = '') => ({
   name,
   attending: '',
-  dietary: 'ninguno',
+  dietary: 'ninguna',
   allergyDetails: '',
   bus: '',
 });
 
 const DIETARY_OPTIONS = [
-  { value: 'vegetariano', label: 'Vegetariano' },
-  { value: 'vegano', label: 'Vegano' },
-  { value: 'celiaco', label: 'Celíaco' },
+  { value: 'vegetarianx', label: 'Vegetarianx' },
+  { value: 'veganx', label: 'Veganx' },
+  { value: 'celiacx', label: 'Celíacx' },
   { value: 'alergias', label: 'Alergias' },
-  { value: 'ninguno', label: 'Ninguno' },
+  { value: 'ninguna', label: 'Ninguna' },
 ];
 
 function normalizeText(value) {
@@ -115,7 +115,7 @@ function formatDietaryRestriction(guest) {
   }
 
   const selected = DIETARY_OPTIONS.find((option) => option.value === guest.dietary);
-  if (!selected || selected.value === 'ninguno') return 'None';
+  if (!selected || selected.value === 'ninguna') return 'None';
   return selected.label;
 }
 
@@ -347,20 +347,15 @@ export default function RSVP() {
   });
 
   return (
-    <div className="max-w-xl mx-auto px-4 sm:px-6">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6">
       <div className="text-center mb-10">
         <p className="section-label mb-2">¡No te olvides!</p>
         <h2 className="wedding-title text-4xl sm:text-5xl" style={{ color: 'var(--brown)' }}>
           Confirmación
         </h2>
-        <p className="mt-3 text-sm" style={{ color: 'var(--muted)' }}>
+        <p className="mt-3 text-base sm:text-lg" style={{ color: 'var(--muted)' }}>
           Por favor confirmá antes del <strong style={{ color: 'var(--brown)' }}>31 de octubre 2026</strong>
         </p>
-        {status !== 'success' && (
-          <p className="mt-4 text-sm" style={{ color: 'var(--muted)' }}>
-            Buscá tu nombre para cargar la invitación. La confirmación es estricta y solo acepta nombres del listado oficial.
-          </p>
-        )}
       </div>
 
       {status === 'success' ? (
@@ -480,7 +475,7 @@ export default function RSVP() {
                       onChange={(e) => updateGuest(index, 'attending', e.target.value)}
                       required
                     />
-                    <span>🥂 ¡Sí!</span>
+                    <span>Sí!</span>
                   </label>
                   <label className="rsvp-radio-option">
                     <input
@@ -490,7 +485,7 @@ export default function RSVP() {
                       checked={guest.attending === 'no'}
                       onChange={(e) => updateGuest(index, 'attending', e.target.value)}
                     />
-                    <span>😢 No voy a poder ir</span>
+                    <span>No voy a poder ir</span>
                   </label>
                 </div>
               </div>
@@ -545,7 +540,7 @@ export default function RSVP() {
                         onChange={(e) => updateGuest(index, 'bus', e.target.value)}
                         required
                       />
-                      <span>🚌 Sí, por favor</span>
+                      <span>Sí, por favor</span>
                     </label>
                     <label className="rsvp-radio-option">
                       <input

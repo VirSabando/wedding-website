@@ -35,7 +35,7 @@ export default function WhenWhere() {
         <h2 className="wedding-title text-4xl sm:text-5xl" style={{ color: 'var(--brown)' }}>
           Cuándo y Dónde
         </h2>
-        <p className="mt-3 wedding-heading text-lg" style={{ color: 'var(--gold)' }}>{dateDisplay}</p>
+        <p className="mt-3 wedding-heading text-lg" style={{ color: 'var(--brown-mid)' }}>{dateDisplay}</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-8 items-stretch">
