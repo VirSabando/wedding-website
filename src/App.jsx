@@ -4,6 +4,7 @@ import WhenWhere from './WhenWhere';
 import DressCode from './DressCode';
 import ImportantInfo from './ImportantInfo';
 import RSVP from './RSVP';
+import Checklist from './Checklist';
 import { weddingData } from './data';
 
 export default function App() {
@@ -20,7 +21,7 @@ export default function App() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const sectionIds = ['home', 'when-where', 'dress-code', 'info', 'rsvp'];
+    const sectionIds = ['home', 'when-where', 'dress-code', 'info', 'checklist', 'rsvp'];
     const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
     if (!sections.length) return;
 
@@ -41,10 +42,11 @@ export default function App() {
   }, []);
 
   const navLinks = [
-    { id: 'when-where', label: 'When & Where' },
-    { id: 'dress-code', label: 'Dress Code' },
-    { id: 'info',       label: 'Good to Know' },
-    { id: 'rsvp',       label: 'RSVP' },
+    { id: 'when-where', label: 'Cuándo y Dónde' },
+    { id: 'dress-code', label: 'Dress code' },
+    { id: 'checklist',  label: 'Checklist' },
+    { id: 'info',       label: 'Info importante' },
+    { id: 'rsvp',       label: 'Confirmación' },
   ];
 
   return (
@@ -59,7 +61,7 @@ export default function App() {
             className="wedding-heading text-lg text-brown font-semibold hover:opacity-70 transition-opacity"
             style={{ color: 'var(--brown)' }}
           >
-            {weddingData.couple.person1} &amp; {weddingData.couple.person2}
+            {weddingData.couple.person1} <span className="couple-ampersand">&amp;</span> {weddingData.couple.person2}
           </a>
 
           {/* Desktop nav */}
@@ -77,7 +79,7 @@ export default function App() {
             onClick={() => setMenuOpen((v) => !v)}
             className="lg:hidden rounded-full border p-2 flex items-center justify-center transition"
             style={{ borderColor: 'var(--border-color)', background: 'var(--surface)', color: 'var(--brown)' }}
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={menuOpen}
           >
             {menuOpen ? (
@@ -129,6 +131,10 @@ export default function App() {
           <ImportantInfo />
         </section>
 
+        <section id="checklist" className="section py-16">
+          <Checklist />
+        </section>
+
         <section id="rsvp" className="section py-16">
           <RSVP />
         </section>
@@ -136,7 +142,7 @@ export default function App() {
         <footer className="py-10 text-center" style={{ color: 'var(--muted)', fontSize: '0.8rem', letterSpacing: '0.12em' }}>
           <p className="ornament mb-3">✦ ✦ ✦</p>
           <p style={{ textTransform: 'uppercase' }}>
-            {weddingData.couple.person1} &amp; {weddingData.couple.person2} · {weddingData.dateDisplay}
+            {weddingData.couple.person1} <span className="couple-ampersand">&amp;</span> {weddingData.couple.person2} · {weddingData.dateDisplay}
           </p>
         </footer>
       </main>
