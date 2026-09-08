@@ -44,8 +44,8 @@ export default function App() {
   const navLinks = [
     { id: 'when-where', label: 'Cuándo y Dónde' },
     { id: 'dress-code', label: 'Dress code' },
-    { id: 'checklist',  label: 'Checklist' },
     { id: 'info',       label: 'Info importante' },
+    { id: 'checklist',  label: 'Checklist' },
     { id: 'rsvp',       label: 'Confirmación' },
   ];
 
