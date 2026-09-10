@@ -116,15 +116,25 @@ body {
 /* Wedding heading style */
 .wedding-heading {
 	font-family: 'Kenao', 'Cormorant Garamond', Georgia, serif;
-	font-weight: 600;
+	font-weight: 400;
 	letter-spacing: 0.02em;
+	font-synthesis: none;
+	font-variant-ligatures: none;
+	font-variant-alternates: normal;
+	font-feature-settings: 'liga' 0, 'clig' 0, 'calt' 0, 'dlig' 0, 'salt' 0, 'ss01' 0, 'ss02' 0;
+	text-rendering: auto;
 }
 
 .wedding-title {
 	font-family: 'Kenao', 'Cormorant Garamond', Georgia, serif;
-	font-weight: 700;
+	font-weight: 400;
 	letter-spacing: 0.01em;
 	line-height: 1.1;
+	font-synthesis: none;
+	font-variant-ligatures: none;
+	font-variant-alternates: normal;
+	font-feature-settings: 'liga' 0, 'clig' 0, 'calt' 0, 'dlig' 0, 'salt' 0, 'ss01' 0, 'ss02' 0;
+	text-rendering: auto;
 }
 
 .couple-ampersand {
@@ -136,7 +146,7 @@ body {
 
 .section-label {
 	font-size: 0.7rem;
-	font-weight: 700;
+	font-weight: 400;
 	letter-spacing: 0.25em;
 	text-transform: uppercase;
 	color: var(--sage);

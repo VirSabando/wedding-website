@@ -45,7 +45,7 @@ export default function ImportantInfo() {
           >
             <div className="info-icon shrink-0">{icon}</div>
             <div>
-              <p className="font-semibold mb-1" style={{ color: 'var(--brown)' }}>{title}</p>
+              <p className="font-normal mb-1" style={{ color: 'var(--brown)' }}>{title}</p>
               <p className="text-sm leading-relaxed" style={{ color: 'var(--muted)' }}>{text}</p>
             </div>
           </div>

@@ -10,7 +10,7 @@ function VenueCard({ title, date, time, venueName, address, mapsUrl }) {
           <p className="text-sm" style={{ color: 'var(--muted)' }}>{time}</p>
         </div>
       </div>
-      <p className="font-semibold" style={{ color: 'var(--brown)' }}>{venueName}</p>
+      <p className="font-normal" style={{ color: 'var(--brown)' }}>{venueName}</p>
       <p className="text-sm mt-1" style={{ color: 'var(--muted)' }}>{address}</p>
       <a
         href={mapsUrl}

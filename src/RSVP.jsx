@@ -364,7 +364,7 @@ export default function RSVP() {
           style={{ background: 'var(--surface)', border: '1px solid var(--border-color)' }}
         >
           <p style={{ fontSize: '3rem' }}>🌿</p>
-          <h3 className="wedding-heading text-2xl mt-4 mb-2" style={{ color: 'var(--brown)' }}>
+          <h3 className="wedding-heading text-2xl font-normal mt-4 mb-2" style={{ color: 'var(--brown)' }}>
             ¡Gracias!
           </h3>
           <p style={{ color: 'var(--muted)' }}>Tu respuesta quedó registrada.</p>

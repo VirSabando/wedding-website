@@ -58,7 +58,7 @@ export default function App() {
 
           <a
             href="#home"
-            className="wedding-heading text-lg text-brown font-semibold hover:opacity-70 transition-opacity"
+            className="wedding-heading text-lg text-brown font-normal hover:opacity-70 transition-opacity"
             style={{ color: 'var(--brown)' }}
           >
             {weddingData.couple.person1} <span className="couple-ampersand">&amp;</span> {weddingData.couple.person2}
