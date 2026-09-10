@@ -87,8 +87,8 @@ function normalizeItem(item) {
   const publishedAt = toIsoDate(item?.pubDate ?? item?.['dc:date'] ?? item?.published ?? '');
 
   const rawExcerpt =
-    item?.description ??
     item?.['content:encoded'] ??
+    item?.description ??
     item?.content ??
     '';
 
