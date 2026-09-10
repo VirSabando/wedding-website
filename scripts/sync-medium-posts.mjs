@@ -76,9 +76,8 @@ function extractFirstImageUrl(rawHtml = '') {
   }
 }
 
-function toPostId(link, guid) {
-  const raw = `${link}|${guid ?? ''}`;
-  return createHash('sha1').update(raw).digest('hex').slice(0, 12);
+function toPostId(link) {
+  return createHash('sha1').update(link).digest('hex').slice(0, 12);
 }
 
 function normalizeItem(item) {
@@ -99,7 +98,7 @@ function normalizeItem(item) {
   if (!title || !url) return null;
 
   return {
-    id: toPostId(url, item?.guid),
+    id: toPostId(url),
     title,
     url,
     thumbnail,
