@@ -14,8 +14,8 @@ export const weddingData = {
   // Fondos de la sección Home.
   // Desktop y tablets anchos: horizontal.
   // Móviles en vertical: vertical.
-  homeBackgroundImageDesktopUrl: "/photos/home-background-horizontal.jpg",
-  homeBackgroundImageMobileVerticalUrl: "/photos/home-background-vertical.jpg",
+  homeBackgroundImageDesktopUrl: "/photos/home-background-horizontal-sepia1.jpeg",
+  homeBackgroundImageMobileVerticalUrl: "/photos/home-background-vertical-sepia1.jpeg",
 
   ceremony: {
     date: "Viernes 12 de Febrero",

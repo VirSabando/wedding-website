@@ -98,7 +98,7 @@ export default function Home() {
     >
       {backgroundImageUrl && (
         <div
-          className={`absolute inset-0 bg-top bg-contain md:bg-center md:bg-cover bg-no-repeat transition-all ease-out ${bgVisible ? 'opacity-60 scale-100' : 'opacity-0 scale-105'}`}
+          className={`absolute inset-0 bg-center bg-cover lg:bg-position-[center_35%] bg-no-repeat transition-all ease-out ${bgVisible ? 'opacity-80 scale-100' : 'opacity-0 scale-105'}`}
           style={{ backgroundImage: `url(${backgroundImageUrl})`, transitionDuration: '1800ms' }}
           aria-hidden
         />
@@ -106,11 +106,12 @@ export default function Home() {
 
       <div
         className={`absolute inset-0 transition-opacity duration-1000 ${bgVisible ? 'opacity-100' : 'opacity-0'}`}
-        style={{ background: 'linear-gradient(160deg, rgba(255, 242, 227, 0.46) 0%, rgba(245, 230, 208, 0.56) 100%)' }}
+        style={{ background: 'linear-gradient(160deg, rgba(255, 242, 227, 0.24) 0%, rgba(245, 230, 208, 0.32) 100%)' }}
         aria-hidden
       />
 
-      <div className="relative z-10 flex flex-col items-center text-center pt-2 md:pt-0">
+      <div className="relative z-10 w-full flex flex-col items-center text-center pt-2 md:pt-0">
+      <div className="w-full flex flex-col items-center text-center lg:w-[44%] lg:ml-auto lg:mr-8 xl:mr-10">
       {/* Ornament top */}
       <p className="ornament mb-6">✦ ✦ ✦</p>
 
@@ -183,6 +184,7 @@ export default function Home() {
 
       {/* Ornament bottom */}
       <p className="ornament mt-14">✦ ✦ ✦</p>
+      </div>
       </div>
     </div>
   );
