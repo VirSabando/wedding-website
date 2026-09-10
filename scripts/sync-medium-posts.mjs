@@ -126,7 +126,7 @@ function parseRss(xml) {
   const parser = new XMLParser({
     ignoreAttributes: false,
     trimValues: true,
-    processEntities: true,
+    processEntities: false,
   });
 
   const parsed = parser.parse(xml);
