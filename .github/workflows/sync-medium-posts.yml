@@ -31,7 +31,7 @@ jobs:
 
       - name: Commit updates if changed
         run: |
-          if git diff --quiet -- src/content/medium-posts.json; then
+          if [ -z "$(git status --porcelain -- src/content/medium-posts.json)" ]; then
             echo "No Medium updates to commit."
             exit 0
           fi
