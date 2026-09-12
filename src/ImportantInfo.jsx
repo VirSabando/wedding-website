@@ -3,7 +3,7 @@ export default function ImportantInfo() {
     {
       icon: '🌴',
       title: 'Boda al aire libre + pool party',
-      text: 'Va a hacer calor, así que traé la malla y elegí ropa cómoda, fresca y elegante para celebrar con nosotres.',
+      text: 'Preparate para el calor: traé tu malla y elegí ropa fresca, cómoda y elegante para celebrar con nosotrxs.',
     },
     {
       icon: '🧡',
@@ -13,17 +13,21 @@ export default function ImportantInfo() {
     {
       icon: '🚌',
       title: 'Micro',
-      text: 'La celebración es en Punta Alta, por lo que vamos a poner a disposición colectivos ida y vuelta para quienes deseen ir desde Bahía Blanca, desde un punto de encuentro hasta el salón de eventos. En función de las reservas definiremos el precio del pasaje y lo comunicaremos pronto.',
+      text: 'Pondremos a disposición colectivos ida y vuelta desde Bahía Blanca (punto de encuentro a definir) hasta el salón. El precio dependerá de la cantidad de reservas, ¡acordate de avisarnos en el formulario de confirmación si vas a usarlo!',
     },
     {
       icon: '🎁',
       title: 'Regalos',
-      text: 'Tu presencia es el mejor regalo que podemos pedir 🤍 Si querés contribuir, tenemos un fondo de luna de miel al que podés transferir. Alias: viejo.vir.2027',
+      text: (
+        <>
+          Tu presencia es el mejor regalo. Si querés ayudarnos con nuestra luna de miel, podés hacernos una transferencia a esta cuenta: <strong>viejo.vir.4ever</strong>
+        </>
+      ),
     },
     {
       icon: '🚗',
       title: 'Estacionamiento',
-      text: 'El salón de eventos de la celebración cuenta con estacionamiento libre. Si vas a tomar, no manejes!',
+      text: 'El salón cuenta con estacionamiento libre y privado. ¡Si vas a tomar, no manejes!',
     },
   ];
 

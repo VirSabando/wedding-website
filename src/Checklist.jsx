@@ -3,7 +3,7 @@ const essentials = [
   'Lentes de sol',
   'Calzado cómodo',
   'Repelente',
-  'Malla lista para la pile',
+  'Malla para la pile',
 ];
 
 export default function Checklist() {
@@ -15,7 +15,7 @@ export default function Checklist() {
           Checklist
         </h2>
         <p className="mt-3" style={{ color: 'var(--muted)' }}>
-          Aquí te dejamos una listita de las cosas que no te pueden faltar para disfrutar la boda a pleno!
+          Aquí te dejamos una listita de las cosas que no te pueden faltar para disfrutar la boda a pleno
         </p>
       </div>
 

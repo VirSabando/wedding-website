@@ -42,7 +42,7 @@ export default function App() {
   }, []);
 
   const navLinks = [
-    { id: 'when-where', label: 'Cuándo y Dónde' },
+    { id: 'when-where', label: 'Cuándo y dónde' },
     { id: 'dress-code', label: 'Dress code' },
     { id: 'info',       label: 'Info importante' },
     { id: 'checklist',  label: 'Checklist' },

@@ -8,7 +8,7 @@ export const weddingData = {
   },
 
   date: "2027-02-13",
-  dateDisplay: "12 y 13 de febrero 2027",
+  dateDisplay: "12 y 13 de febrero de 2027",
   countdownTarget: "2027-02-12T11:00:00-03:00",
 
   // Fondos de la sección Home.
@@ -18,15 +18,15 @@ export const weddingData = {
   homeBackgroundImageMobileVerticalUrl: "/photos/home-background-vertical-sepia1.jpeg",
 
   ceremony: {
-    date: "Viernes 12 de Febrero",
-    time: "11:00 hs",
+    date: "Viernes 12 de febrero",
+    time: "Horario a confirmar",
     venueName: "Delegación Registro Provincial de las Personas",
     address: "Avenida San Martín 3466, Ingeniero White",
     mapsUrl: "https://maps.app.goo.gl/SdBs7ggSv7yU1ieB9",
   },
 
   reception: {
-    date: "Sábado 13 de Febrero",
+    date: "Sábado 13 de febrero",
     time: "12:00 hs a 20:00 hs",
     venueName: "Único Eventos",
     address: "Río Bermejo S/N, Punta Alta",

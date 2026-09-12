@@ -2,7 +2,7 @@ const subsections = [
   {
     id: 'summer-chic',
     title: 'Dress Code: Summer Chic',
-    text: 'Vestite con un estilo fresco, elegante y cómodo para un día de verano. Elegí los colores y estampados que más te gusten, con telas livianas y calzado cómodo para celebrar al aire libre. Tené en cuenta que es una pool party, así que no olvides traer tu malla!',
+    text: 'Vestite con un estilo fresco, elegante y cómodo para un día de verano. Elegí los colores y estampados que más te gusten, con telas livianas y calzado cómodo para celebrar al aire libre. Tené en cuenta que es una pool party, así que ¡no olvides traer tu malla!',
     ideas: [
       {
         src: '/photos/vestidos.jpg',

@@ -362,7 +362,7 @@ export default function RSVP() {
           Confirmación
         </h2>
         <p className="mt-3 text-base sm:text-lg" style={{ color: 'var(--muted)' }}>
-          Por favor confirmá antes del <strong style={{ color: 'var(--brown)' }}>31 de octubre 2026</strong>
+          Por favor confirmá antes del <strong style={{ color: 'var(--brown)' }}>31 de octubre de 2026</strong>
         </p>
       </div>
 
@@ -493,7 +493,7 @@ export default function RSVP() {
                       onChange={(e) => updateGuest(index, 'attending', e.target.value)}
                       required
                     />
-                    <span>Sí!</span>
+                    <span>¡Sí!</span>
                   </label>
                   <label className="rsvp-radio-option">
                     <input

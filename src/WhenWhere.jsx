@@ -33,7 +33,7 @@ export default function WhenWhere() {
       <div className="text-center mb-10">
         <p className="section-label mb-2">Anotalo en el calendario</p>
         <h2 className="wedding-title text-4xl sm:text-5xl" style={{ color: 'var(--brown)' }}>
-          Cuándo y Dónde
+          Cuándo y dónde
         </h2>
         <p className="mt-3 wedding-heading text-lg" style={{ color: 'var(--brown-mid)' }}>{dateDisplay}</p>
       </div>
