@@ -34,49 +34,6 @@ export const weddingData = {
     sameAsVenue: false,
   },
 
-  bus: {
-    pickupLocation: "Punto de encuentro",          // TODO
-    pickupTime: "16:15 hs",                        // TODO
-    returnTime: "01:00 hs",                        // TODO
-  },
-
-  dressCode: {
-    title: "Código de vestimenta",
-    description:
-      "Nos encantaría que te vistas con nuestra paleta de colores — pensá en algo terroso, elegante y relajado. " +
-      "Verde oliva, beige fondo y marrón oscuro son bienvenidos. " +
-      "¡Por favor evitá el blanco, el marfil y el negro para que nuestras fotos queden bien coloridas!",
-    palette: [
-      { name: "Verde", hex: "#7e7a36" },
-      { name: "Beige Fondo", hex: "#fff2e3" },
-      { name: "Marrón Oscuro", hex: "#472f1f" },
-    ],
-    avoid: ["Blanco", "Marfil", "Negro"],
-  },
-
-  importantInfo: [
-    {
-      icon: "🎁",
-      title: "Regalos",
-      text: "Tu presencia es el mejor regalo. Si querés contribuir con algo más, tenemos un fondo de luna de miel — los detalles los compartimos pronto.", // TODO
-    },
-    {
-      icon: "🧡",
-      title: "Boda sin niñxs",
-      text: "Para que todos podamos disfrutar la noche sin preocupaciones, esta es una celebración solo para adultos. ¡Gracias por entender!",
-    },
-    {
-      icon: "🚗",
-      title: "Estacionamiento",
-      text: "Hay estacionamiento gratuito en el lugar. Si venís en el micro, ¡no te preocupes por esto!", // TODO
-    },
-    {
-      icon: "🌿",
-      title: "Alimentación",
-      text: "Habrá opciones vegetarianas y veganas. Contanos en el formulario de confirmación si tenés alguna restricción o alergia.",
-    },
-  ],
-
   // Lista rápida para que el RSVP detecte cuántas personas tiene cada invitación.
   // Podés tener grupos de 1, 2 o más personas, siempre con nombres exactos.
   rsvpInvitations: [
