@@ -174,7 +174,7 @@ export default function Home() {
 
       {/* Divider */}
       <div
-        className="w-20 md:w-24 h-px mb-6 md:mb-10"
+        className="w-20 md:w-24 h-px mb-6 md:mb-10 mx-auto"
         style={{ background: 'linear-gradient(90deg, transparent, var(--sage), transparent)' }}
       />
 
