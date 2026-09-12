@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-const LEAF_ASSETS = [
+const FOLIAGE_ASSETS = [
   { src: '/background-assets/foliage/hoja_1.svg', kind: 'leaf', baseSize: 26 },
   { src: '/background-assets/foliage/hoja_2.svg', kind: 'leaf', baseSize: 24 },
   { src: '/background-assets/foliage/hoja_3.svg', kind: 'leaf', baseSize: 22 },
@@ -8,57 +8,93 @@ const LEAF_ASSETS = [
   { src: '/background-assets/foliage/hoja_5.svg', kind: 'leaf', baseSize: 20 },
   { src: '/background-assets/foliage/hoja_6.svg', kind: 'leaf', baseSize: 19 },
   { src: '/background-assets/foliage/hoja_7.svg', kind: 'leaf', baseSize: 17 },
-]
-
-const FLOWER_ASSETS = [
   { src: '/background-assets/foliage/flor_1.svg', kind: 'flower', baseSize: 28 },
   { src: '/background-assets/foliage/flor_2.svg', kind: 'flower', baseSize: 27 },
   { src: '/background-assets/foliage/flor_3.svg', kind: 'flower', baseSize: 29 },
 ]
 
-const MAX_ACTIVE_FOLIAGE = 12
-const SPAWN_COOLDOWN_MS = 70
-const EXIT_MARGIN_PX = 72
+const MAX_ELEMENTS = 6
+const EVASION_RADIUS = 90
 
 function randomBetween(min, max) {
   return min + Math.random() * (max - min)
 }
 
-function pickRandomItem(items) {
-  return items[Math.floor(Math.random() * items.length)]
+function pickAsset() {
+  return Math.random() < 0.84
+    ? FOLIAGE_ASSETS[Math.floor(Math.random() * 7)]
+    : FOLIAGE_ASSETS[7 + Math.floor(Math.random() * 3)]
 }
 
-function pickAsset() {
-  if (Math.random() < 0.9) {
-    return pickRandomItem(LEAF_ASSETS)
+function spawnParticle(isInitial) {
+  const width = window.innerWidth
+  const height = window.innerHeight
+  const edge = Math.floor(Math.random() * 4)
+
+  let x
+  let y
+  let vx
+  let vy
+  const baseSpeed = Math.random() * 0.55 + 0.18
+
+  if (edge === 0) {
+    x = Math.random() * width
+    y = -50
+    vx = (Math.random() - 0.5) * 0.9
+    vy = baseSpeed
+  } else if (edge === 1) {
+    x = width + 50
+    y = Math.random() * height
+    vx = -baseSpeed
+    vy = (Math.random() - 0.5) * 0.9
+  } else if (edge === 2) {
+    x = Math.random() * width
+    y = height + 50
+    vx = (Math.random() - 0.5) * 0.9
+    vy = -baseSpeed
+  } else {
+    x = -50
+    y = Math.random() * height
+    vx = baseSpeed
+    vy = (Math.random() - 0.5) * 0.9
   }
 
-  return pickRandomItem(FLOWER_ASSETS)
-}
+  if (isInitial) {
+    x = Math.random() * width
+    y = Math.random() * height
+  }
 
-function pickExitTarget(viewportWidth, viewportHeight) {
-  const edge = pickRandomItem(['left', 'right', 'top', 'bottom'])
+  const asset = pickAsset()
 
-  switch (edge) {
-    case 'left':
-      return { x: -EXIT_MARGIN_PX, y: randomBetween(0, viewportHeight) }
-    case 'right':
-      return { x: viewportWidth + EXIT_MARGIN_PX, y: randomBetween(0, viewportHeight) }
-    case 'top':
-      return { x: randomBetween(0, viewportWidth), y: -EXIT_MARGIN_PX }
-    default:
-      return { x: randomBetween(0, viewportWidth), y: viewportHeight + EXIT_MARGIN_PX }
+  return {
+    x,
+    y,
+    vx,
+    vy,
+    baseSpeed,
+    rotation: Math.random() * 360,
+    rotationSpeed: (Math.random() - 0.5) * 0.55,
+    swayPhase: Math.random() * Math.PI * 2,
+    swaySpeed: Math.random() * 0.012 + 0.004,
+    swayAmount: Math.random() * 24 + 12,
+    driftPhase: Math.random() * Math.PI * 2,
+    driftSpeed: Math.random() * 0.008 + 0.002,
+    driftAmount: Math.random() * 0.055 + 0.02,
+    driftBias: Math.random() * Math.PI * 2,
+    size: asset.baseSize * (Math.random() * 0.22 + 0.9),
+    kind: asset.kind,
+    src: asset.src,
   }
 }
 
 export default function FoliageAmbient() {
-  const layerRef = useRef(null)
+  const containerRef = useRef(null)
 
   useEffect(() => {
     if (typeof window === 'undefined') return undefined
 
-    const layer = layerRef.current
-    if (!layer) return undefined
+    const container = containerRef.current
+    if (!container) return undefined
 
     const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
     const finePointerQuery = window.matchMedia('(hover: hover) and (pointer: fine)')
@@ -67,126 +103,115 @@ export default function FoliageAmbient() {
       return undefined
     }
 
-    const activeItems = new Set()
-    let lastSpawnAt = 0
+    const mouse = { x: -1000, y: -1000 }
+    const particles = []
+    const domElements = []
 
-    function removeItem(node) {
-      if (node?.parentNode === layer) {
-        layer.removeChild(node)
-      }
-      activeItems.delete(node)
+    function updateMouse(event) {
+      mouse.x = event.clientX
+      mouse.y = event.clientY
     }
 
-    function spawnFoliage(pointerX, pointerY, movementX, movementY) {
-      const movementMagnitude = Math.hypot(movementX, movementY)
-      if (movementMagnitude < 1) return
+    window.addEventListener('mousemove', updateMouse, { passive: true })
 
-      const now = performance.now()
-      if (now - lastSpawnAt < SPAWN_COOLDOWN_MS) return
-      lastSpawnAt = now
+    for (let index = 0; index < MAX_ELEMENTS; index += 1) {
+      const particle = spawnParticle(true)
+      particles.push(particle)
 
-      const spawnCount = movementMagnitude > 18 ? 2 : 1
-      const movementInfluence = Math.min(1.4, movementMagnitude / 16)
+      const element = document.createElement('div')
+      element.className = 'celebrate-particle'
+      element.style.width = `${particle.size}px`
+      element.style.height = `${particle.size}px`
 
+      const image = document.createElement('img')
+      image.src = particle.src
+      image.alt = ''
+      image.loading = 'eager'
+      image.decoding = 'async'
+      image.draggable = false
+      image.className = particle.kind === 'flower'
+        ? 'celebrate-particle-image celebrate-particle-flower'
+        : 'celebrate-particle-image'
 
-      for (let spawnIndex = 0; spawnIndex < spawnCount; spawnIndex += 1) {
-        if (activeItems.size >= MAX_ACTIVE_FOLIAGE) {
-          const oldest = activeItems.values().next().value
-          if (oldest) removeItem(oldest)
+      element.appendChild(image)
+      container.appendChild(element)
+      domElements.push(element)
+    }
+
+    let rafId = 0
+
+    function renderLoop() {
+      particles.forEach((particle, index) => {
+        particle.x += particle.vx
+        particle.y += particle.vy
+        particle.rotation += particle.rotationSpeed
+        particle.swayPhase += particle.swaySpeed
+        particle.driftPhase += particle.driftSpeed
+
+        const swayBase = Math.abs(particle.vx) + Math.abs(particle.vy) || 1
+        const swayOffsetX = Math.cos(particle.swayPhase) * particle.swayAmount * (particle.vy / swayBase)
+        const swayOffsetY = Math.sin(particle.swayPhase) * particle.swayAmount * (particle.vx / swayBase)
+
+        const driftX = Math.cos(particle.driftPhase + particle.driftBias) * particle.driftAmount
+        const driftY = Math.sin(particle.driftPhase + particle.driftBias) * particle.driftAmount
+        particle.vx += driftX
+        particle.vy += driftY
+
+        const dx = particle.x + swayOffsetX - mouse.x
+        const dy = particle.y + swayOffsetY - mouse.y
+        const distance = Math.sqrt(dx * dx + dy * dy)
+
+        if (distance < EVASION_RADIUS) {
+          const force = (EVASION_RADIUS - distance) / EVASION_RADIUS
+          const safeDistance = distance || 0.0001
+          particle.vx += (dx / safeDistance) * force * 0.2
+          particle.vy += (dy / safeDistance) * force * 0.2
         }
 
-        const asset = pickAsset()
-        const viewportWidth = window.innerWidth
-        const viewportHeight = window.innerHeight
-        const spawnRadius = randomBetween(12, 30 + movementMagnitude * 0.14)
-        const spawnAngle = Math.random() * Math.PI * 2
-        const startX = pointerX + Math.cos(spawnAngle) * spawnRadius
-        const startY = pointerY + Math.sin(spawnAngle) * spawnRadius
-        const exitTarget = pickExitTarget(viewportWidth, viewportHeight)
-        const travelX = exitTarget.x - startX
-        const travelY = exitTarget.y - startY
-        const midX = startX + travelX * 0.18 + randomBetween(-10, 10) + movementX * 0.025 * movementInfluence
-        const midY = startY + travelY * 0.18 + randomBetween(-10, 10) + movementY * 0.025 * movementInfluence
-        const size = Math.round(asset.baseSize * randomBetween(0.82, 1.12))
-        const spinDirection = Math.random() < 0.5 ? -1 : 1
-        const startRotation = randomBetween(-20, 20)
-        const midRotation = startRotation + spinDirection * randomBetween(28, 76)
-        const endRotation = midRotation + spinDirection * randomBetween(18, 54)
-        const startScale = randomBetween(0.8, 0.92)
-        const midScale = randomBetween(0.88, 0.98)
-        const endScale = randomBetween(0.76, 0.88)
-        const duration = randomBetween(5200, 7600) - movementMagnitude * 10
+        const speed = Math.sqrt(particle.vx * particle.vx + particle.vy * particle.vy)
+        if (speed > particle.baseSpeed * 2.2) {
+          particle.vx *= 0.925
+          particle.vy *= 0.925
+        } else {
+          particle.vx *= 0.985
+          particle.vy *= 0.985
+        }
 
-        const node = document.createElement('div')
-        node.className = 'celebrate-particle'
-        node.style.width = `${size}px`
+        const padding = 100
+        if (
+          particle.x < -padding || particle.x > window.innerWidth + padding ||
+          particle.y < -padding || particle.y > window.innerHeight + padding
+        ) {
+          const nextParticle = spawnParticle(false)
+          Object.assign(particle, nextParticle)
 
-        const image = document.createElement('img')
-        image.src = asset.src
-        image.alt = ''
-        image.draggable = false
-        image.decoding = 'async'
-        image.loading = 'eager'
-        image.className = asset.kind === 'flower' ? 'celebrate-particle-image celebrate-particle-flower' : 'celebrate-particle-image'
-
-        node.appendChild(image)
-        layer.appendChild(node)
-        activeItems.add(node)
-
-        const animation = node.animate(
-          [
-            {
-              left: `${startX}px`,
-              top: `${startY}px`,
-              opacity: 0,
-              transform: `translate(-50%, -50%) rotate(${startRotation}deg) scale(${startScale})`,
-            },
-            {
-              left: `${midX}px`,
-              top: `${midY}px`,
-              opacity: 0.7,
-              offset: 0.45,
-              transform: `translate(-50%, -50%) rotate(${midRotation}deg) scale(${midScale})`,
-            },
-            {
-              left: `${exitTarget.x}px`,
-              top: `${exitTarget.y}px`,
-              opacity: 0,
-              transform: `translate(-50%, -50%) rotate(${endRotation}deg) scale(${endScale})`,
-            },
-          ],
-          {
-            duration,
-            easing: 'cubic-bezier(0.12, 0.82, 0.18, 1)',
-            fill: 'forwards',
+          domElements[index].style.width = `${particle.size}px`
+          domElements[index].style.height = `${particle.size}px`
+          const image = domElements[index].querySelector('img')
+          if (image) {
+            image.src = particle.src
+            image.className = particle.kind === 'flower'
+              ? 'celebrate-particle-image celebrate-particle-flower'
+              : 'celebrate-particle-image'
           }
-        )
+        }
 
-        animation.onfinish = () => removeItem(node)
-        animation.oncancel = () => removeItem(node)
-      }
+        domElements[index].style.transform = `translate(${particle.x + swayOffsetX}px, ${particle.y + swayOffsetY}px) rotate(${particle.rotation}deg)`
+      })
+
+      rafId = window.requestAnimationFrame(renderLoop)
     }
 
-    function onPointerMove(event) {
-      spawnFoliage(event.clientX, event.clientY, event.movementX, event.movementY)
-    }
-
-    window.addEventListener('pointermove', onPointerMove, { passive: true })
+    rafId = window.requestAnimationFrame(renderLoop)
 
     return () => {
-      window.removeEventListener('pointermove', onPointerMove)
-      activeItems.forEach((node) => {
-        if (node?.parentNode === layer) {
-          layer.removeChild(node)
-        }
-      })
-      activeItems.clear()
+      window.removeEventListener('mousemove', updateMouse)
+      if (rafId) window.cancelAnimationFrame(rafId)
+      particles.length = 0
+      domElements.forEach((element) => element.remove())
+      domElements.length = 0
     }
   }, [])
 
-  return (
-    <div id="celebrate" className="celebrate-root" aria-hidden="true">
-      <div ref={layerRef} className="celebrate-layer" />
-    </div>
-  )
+  return <div ref={containerRef} id="celebrate" className="celebrate-root" aria-hidden="true" />
 }
