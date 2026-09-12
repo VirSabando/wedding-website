@@ -97,9 +97,10 @@ export default function FoliageAmbient() {
     if (!container) return undefined
 
     const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const finePointerQuery = window.matchMedia('(hover: hover) and (pointer: fine)')
+    const coarsePointerQuery = window.matchMedia('(hover: none), (pointer: coarse)')
+    const isCoarsePointer = coarsePointerQuery.matches
 
-    if (reduceMotionQuery.matches || !finePointerQuery.matches) {
+    if (reduceMotionQuery.matches) {
       return undefined
     }
 
@@ -112,9 +113,13 @@ export default function FoliageAmbient() {
       mouse.y = event.clientY
     }
 
-    window.addEventListener('mousemove', updateMouse, { passive: true })
+    if (!isCoarsePointer) {
+      window.addEventListener('mousemove', updateMouse, { passive: true })
+    }
 
-    for (let index = 0; index < MAX_ELEMENTS; index += 1) {
+    const activeCount = isCoarsePointer ? 4 : MAX_ELEMENTS
+
+    for (let index = 0; index < activeCount; index += 1) {
       const particle = spawnParticle(true)
       particles.push(particle)
 
@@ -161,7 +166,7 @@ export default function FoliageAmbient() {
         const dy = particle.y + swayOffsetY - mouse.y
         const distance = Math.sqrt(dx * dx + dy * dy)
 
-        if (distance < EVASION_RADIUS) {
+        if (!isCoarsePointer && distance < EVASION_RADIUS) {
           const force = (EVASION_RADIUS - distance) / EVASION_RADIUS
           const safeDistance = distance || 0.0001
           particle.vx += (dx / safeDistance) * force * 0.2
@@ -205,7 +210,9 @@ export default function FoliageAmbient() {
     rafId = window.requestAnimationFrame(renderLoop)
 
     return () => {
-      window.removeEventListener('mousemove', updateMouse)
+      if (!isCoarsePointer) {
+        window.removeEventListener('mousemove', updateMouse)
+      }
       if (rafId) window.cancelAnimationFrame(rafId)
       particles.length = 0
       domElements.forEach((element) => element.remove())
