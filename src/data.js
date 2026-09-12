@@ -9,7 +9,7 @@ export const weddingData = {
 
   date: "2027-02-13",
   dateDisplay: "12 y 13 de febrero de 2027",
-  countdownTarget: "2027-02-12T11:00:00-03:00",
+  countdownTarget: "2027-02-13T12:00:00-03:00",
 
   // Fondos de la sección Home.
   // Desktop y tablets anchos: horizontal.
