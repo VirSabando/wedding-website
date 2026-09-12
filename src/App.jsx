@@ -50,7 +50,7 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-100 text-slate-900">
+    <div className="relative z-10 min-h-screen text-slate-900">
 
       {/* Navigation */}
       <nav className="bg-white shadow-sm sticky top-0 z-50 border-b border-slate-200">

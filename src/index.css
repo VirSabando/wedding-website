@@ -49,6 +49,57 @@ body {
 	width: 100%;
 	overflow-x: hidden;
 }
+
+.celebrate-root {
+	position: fixed;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	overflow: hidden;
+	contain: layout paint size;
+}
+
+.celebrate-layer {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+}
+
+.celebrate-particle {
+	position: absolute;
+	left: 0;
+	top: 0;
+	transform-origin: center center;
+	will-change: transform, opacity, left, top;
+	pointer-events: none;
+	filter: drop-shadow(0 8px 18px rgba(71, 47, 31, 0.08));
+	user-select: none;
+	-webkit-user-drag: none;
+}
+
+.celebrate-particle-image {
+	display: block;
+	width: 100%;
+	height: auto;
+	pointer-events: none;
+}
+
+.celebrate-particle-flower {
+	opacity: 0.95;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.celebrate-root {
+		display: none;
+	}
+}
+
+@media (hover: none), (pointer: coarse) {
+	.celebrate-root {
+		display: none;
+	}
+}
+
 *, *::before, *::after {
 	box-sizing: border-box;
 }
