@@ -119,7 +119,15 @@ function formatDietaryRestriction(guest) {
   return selected.label;
 }
 
+function getSuccessGraphic() {
+  return {
+    primary: '/background-assets/success/1.svg',
+    fallback: '/background-assets/main/1.svg',
+  };
+}
+
 export default function RSVP() {
+  const [successGraphic] = useState(() => getSuccessGraphic());
   const [invitations, setInvitations] = useState(weddingData.rsvpInvitations || []);
   const [loadingInvitations, setLoadingInvitations] = useState(false);
   const [invitationSourceError, setInvitationSourceError] = useState('');
@@ -363,7 +371,17 @@ export default function RSVP() {
           className="rounded-2xl p-10 text-center"
           style={{ background: 'var(--surface)', border: '1px solid var(--border-color)' }}
         >
-          <p style={{ fontSize: '3rem' }}>🌿</p>
+          <img
+            src={successGraphic.primary}
+            alt="Ilustración de confirmación"
+            width="208"
+            height="208"
+            style={{ width: 'clamp(144px, 30vw, 208px)', height: 'clamp(144px, 30vw, 208px)', margin: '0 auto' }}
+            onError={(e) => {
+              e.currentTarget.onerror = null;
+              e.currentTarget.src = successGraphic.fallback;
+            }}
+          />
           <h3 className="wedding-heading text-2xl font-normal mt-4 mb-2" style={{ color: 'var(--brown)' }}>
             ¡Gracias!
           </h3>
