@@ -25,6 +25,51 @@
 	--page-text: var(--marron-oscuro);
 	--surface: #fffaf4;
 	--surface-soft: #f5e6d0;
+
+.celebrate-root {
+	position: fixed;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	overflow: hidden;
+	contain: layout paint size;
+}
+
+.celebrate-layer {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+}
+
+.celebrate-particle {
+	position: absolute;
+	left: 0;
+	top: 0;
+	will-change: transform;
+	pointer-events: none;
+	user-select: none;
+	-webkit-user-drag: none;
+	opacity: 0.78;
+	filter: drop-shadow(0 8px 18px rgba(71, 47, 31, 0.08));
+}
+
+.celebrate-particle-image {
+	display: block;
+	width: 100%;
+	height: auto;
+	pointer-events: none;
+	transform-origin: center center;
+}
+
+.celebrate-particle-flower {
+	opacity: 0.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.celebrate-root {
+		display: none;
+	}
+}
 	--border-color: rgba(71, 47, 31, 0.18);
 	--muted: #7b5a49;
 	--sage: var(--verde);
@@ -150,6 +195,23 @@ body {
 	letter-spacing: 0.25em;
 	text-transform: uppercase;
 	color: var(--sage);
+}
+
+.home-hero-panel {
+	border: 1px solid rgba(255, 250, 244, 0.42);
+	border-radius: 1.75rem;
+	background: rgba(255, 250, 244, 0.26);
+	box-shadow: 0 24px 60px rgba(45, 33, 24, 0.22);
+	backdrop-filter: blur(10px) saturate(120%);
+	-webkit-backdrop-filter: blur(10px) saturate(120%);
+}
+
+@media (max-width: 767px) {
+	.home-hero-panel {
+		background: rgba(255, 250, 244, 0.34);
+		border-color: rgba(255, 250, 244, 0.5);
+		box-shadow: 0 18px 42px rgba(45, 33, 24, 0.24);
+	}
 }
 
 /* Cards */
